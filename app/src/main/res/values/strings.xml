@@ -41,4 +41,7 @@
 
     <!--返回-->
     <string name="all_go_back">返回</string>
+    <string name="login_et_password_hint">请输入密码</string>
+    <string name="login_et_phone_hint">请输入手机号</string>
+    <string name="login_signinfragmentfragment_btn_login">登录</string>
 </resources>

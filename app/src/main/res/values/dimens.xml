@@ -73,4 +73,14 @@
     <dimen name="all_button_height">40dp</dimen>
     <dimen name="button_marginHorizontal">24dp</dimen>
     <dimen name="all_button_width">120dp</dimen>
+
+
+    <!--登录界面-->
+    <dimen name="et_width">270dp</dimen>
+    <dimen name="et_height">44dp</dimen>
+    <dimen name="et_textsize">16sp</dimen>
+    <dimen name="et_padding">10dp</dimen>
+    <dimen name="et_margin_logo">44dp</dimen>
+    <dimen name="et_margin_edittext">20dp</dimen>
+    <dimen name="drop_down_margin_right_et">20dp</dimen>
 </resources>

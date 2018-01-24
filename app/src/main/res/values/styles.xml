@@ -62,5 +62,20 @@
         <item name="android:textColor">@color/black_baozheng</item>
         <item name="android:textColorHint">@color/black_likui</item>
     </style>
+    <style name="editText" parent="view_base">
+        <item name="android:background">@drawable/selector_white_background_stroke</item>
+        <item name="android:padding">@dimen/et_padding</item>
+        <item name="android:saveEnabled">false</item>
+        <item name="android:gravity">center|left</item>
+        <item name="android:textSize">@dimen/et_textsize</item>
+        <item name="android:textColorHint">@color/hint</item>
+    </style>
 
+    <style name="view_base" parent="android:ButtonBar">
+        <item name="android:layout_height">@dimen/et_height</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_marginLeft">@dimen/all_margin_left</item>
+        <item name="android:layout_marginRight">@dimen/all_margin_left</item>
+    </style>
 </resources>

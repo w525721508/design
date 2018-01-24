@@ -34,4 +34,7 @@
     <color name="golden_yuji">#f2e7d3</color>
 
     <color name="purple_yanqing">#6590e6</color>
+    <color name="hint">#DCDCDC</color>
+    <!-- 全透明 -->
+    <color name="all_transparent">#00000000</color>
 </resources>

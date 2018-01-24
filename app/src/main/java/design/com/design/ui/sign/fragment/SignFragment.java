@@ -1,6 +1,9 @@
 package design.com.design.ui.sign.fragment;
 
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.view.View;
+import android.widget.EditText;
 
 import design.com.design.R;
 import design.com.design.base.BaseFragment;
@@ -23,16 +26,40 @@ public class SignFragment extends BaseFragment<LoginPresenter, FragmentSignBindi
             @Override
             public void onClick(View v) {
                 switch (v.getId()) {
-                    case R.id.btn: {
+                    case R.id.btn_login: {
                         mPresenter.checkUserNameAndPwd("123", "456");
-                    }
-                    break;
-                    default: {
-
                     }
                     break;
                 }
             }
         });
+        mViewBinding.etPhone.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                switchIcon(mViewBinding.etPhone, b, R.mipmap.login_username2, R.mipmap
+                        .login_username1);
+            }
+        });
+        mViewBinding.etPwd.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                switchIcon(mViewBinding.etPwd, b, R.mipmap.login_pwd02, R.mipmap.login_pwd01);
+            }
+        });
+
+
     }
+
+    private void switchIcon(EditText view, Boolean b, int iconIdOne, int iconTwo) {
+        Resources res = getResources();
+        Drawable img_off;
+        if (b) {
+            img_off = res.getDrawable(iconIdOne);
+        } else {
+            img_off = res.getDrawable(iconTwo);
+        }
+        img_off.setBounds(0, 0, img_off.getMinimumWidth(), img_off.getMinimumHeight());
+        view.setCompoundDrawables(img_off, null, null, null);
+    }
+
 }
