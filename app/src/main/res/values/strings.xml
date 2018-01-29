@@ -1,4 +1,10 @@
 <resources>
+    <!--主页菜单-->
+    <string name="menu_index">主页</string>
+    <string name="menu_order">订单</string>
+    <string name="menu_myself">我的</string>
+
+
     <string name="app_name">design</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
@@ -42,6 +48,8 @@
     <!--返回-->
     <string name="all_go_back">返回</string>
     <string name="login_et_password_hint">请输入密码</string>
+    <string name="login_et_password_two_hint">请再次输入密码</string>
     <string name="login_et_phone_hint">请输入手机号</string>
     <string name="login_signinfragmentfragment_btn_login">登录</string>
+    <string name="login_registerfragmentfragment_btn_register">注册</string>
 </resources>

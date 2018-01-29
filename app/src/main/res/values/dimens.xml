@@ -80,7 +80,7 @@
     <dimen name="et_height">44dp</dimen>
     <dimen name="et_textsize">16sp</dimen>
     <dimen name="et_padding">10dp</dimen>
-    <dimen name="et_margin_logo">44dp</dimen>
+    <dimen name="et_margin_logo">30dp</dimen>
     <dimen name="et_margin_edittext">20dp</dimen>
     <dimen name="drop_down_margin_right_et">20dp</dimen>
 </resources>

@@ -55,4 +55,8 @@ public abstract class BaseFragment<P extends BasePresenter, B extends ViewDataBi
         super.onDetach();
         KeyboardUtils.hideSoftInput(getActivity());
     }
+
+    public CharSequence getTabTitle() {
+        return null;
+    }
 }

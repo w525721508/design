@@ -27,7 +27,16 @@ public class SignFragment extends BaseFragment<LoginPresenter, FragmentSignBindi
             public void onClick(View v) {
                 switch (v.getId()) {
                     case R.id.btn_login: {
-                        mPresenter.checkUserNameAndPwd("123", "456");
+                        mPresenter.sign(mViewBinding.etPhone.getText().toString(), mViewBinding
+                                .etPwd.getText().toString());
+                    }
+                    break;
+                    case R.id.tv_signUp: {
+                        start(mPresenter.registeredFragment);
+                    }
+                    break;
+                    case R.id.tv_forgotPassword: {
+
                     }
                     break;
                 }
@@ -49,6 +58,7 @@ public class SignFragment extends BaseFragment<LoginPresenter, FragmentSignBindi
 
 
     }
+
 
     private void switchIcon(EditText view, Boolean b, int iconIdOne, int iconTwo) {
         Resources res = getResources();
