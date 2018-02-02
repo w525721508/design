@@ -3,11 +3,11 @@ package design.root.api;
 import java.util.concurrent.TimeUnit;
 
 import design.root.Constant;
+import design.root.util.ConverterFactray;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 
 /**
@@ -34,9 +34,12 @@ public class Api {
                 .readTimeout(Constant.API_BUILDER.READ_TIMEOUT, TimeUnit.SECONDS)
                 .writeTimeout(Constant.API_BUILDER.WRITE_TIMEOUT, TimeUnit.SECONDS)
                 .build();
-        Retrofit retrofit = new Retrofit.Builder().baseUrl(Constant.API_HOST).client(okHttpClient)
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(Constant.API_HOST)
+                .client(okHttpClient)
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                .addConverterFactory(GsonConverterFactory.create()).build();
+                .addConverterFactory(ConverterFactray.create())
+                .build();
         apiService = retrofit.create(ApiService.class);
     }
 
