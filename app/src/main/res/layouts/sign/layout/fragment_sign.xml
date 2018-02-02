@@ -12,15 +12,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white_caocao"
-        android:padding="@dimen/all_bounced_padding"
         android:gravity="center"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="@dimen/all_bounced_padding">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:gravity="center|bottom"
-            android:layout_weight="2">
+            android:layout_weight="2"
+            android:gravity="center|bottom">
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -48,7 +48,8 @@
                     android:ems="10"
                     android:hint="@string/login_et_phone_hint"
                     android:inputType="phone"
-                    android:maxLength="11"/>
+                    android:maxLength="11"
+                    android:text="1"/>
 
                 <LinearLayout
                     android:id="@+id/ll_down"
@@ -82,7 +83,8 @@
                 android:ems="10"
                 android:hint="@string/login_et_password_hint"
                 android:inputType="textPassword"
-                android:maxLength="16"/>
+                android:maxLength="16"
+                android:text="10086"/>
 
 
             <Button

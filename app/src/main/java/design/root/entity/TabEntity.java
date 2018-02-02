@@ -3,9 +3,10 @@ package design.root.entity;
 import com.flyco.tablayout.listener.CustomTabEntity;
 
 import design.root.App;
+import design.root.base.BaseEntity;
 
 
-public class TabEntity implements CustomTabEntity {
+public class TabEntity extends BaseEntity implements CustomTabEntity {
     public String title;
     public int selectedIcon;
     public int unSelectedIcon;

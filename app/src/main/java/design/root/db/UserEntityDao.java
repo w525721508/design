@@ -13,8 +13,8 @@ import design.root.entity.UserEntity;
  */
 @Dao
 public interface UserEntityDao {
-    @Query("SELECT * FROM UserEntity WHERE phone IN(:phone) And pwd IN(:pwd)")
-    List<UserEntity> checkUserName(String phone, String pwd);
+    @Query("SELECT * FROM UserEntity WHERE username IN(:username) And password IN(:password)")
+    List<UserEntity> checkUserName(String username, String password);
 
     @Insert
     void insert(UserEntity userEntity);

@@ -24,6 +24,18 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    sourceSets {
+        main {
+            res.srcDirs = [
+                    'src/main/res/layouts/dialog',
+                    'src/main/res/layouts/main',
+                    'src/main/res/layouts/public',
+                    'src/main/res/layouts/sign',
+                    'src/main/res/layouts/base',
+                    'src/main/res'
+            ]
+        }}
+
 }
 
 dependencies {
