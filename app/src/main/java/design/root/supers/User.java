@@ -1,8 +1,8 @@
-package design.root.entity;
+package design.root.supers;
 
 
-import design.root.entity.annotation.FishColumn;
-import design.root.entity.annotation.FishTable;
+import design.root.supers.annotation.FishColumn;
+import design.root.supers.annotation.FishTable;
 
 /**
  * 用户类
@@ -62,4 +62,5 @@ public class User extends SuperBean {
     public void setAge(int age) {
         this.age = age;
     }
+
 }
