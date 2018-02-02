@@ -4,6 +4,7 @@ package design.root.ui.sign;
 import design.root.base.BaseModel;
 import design.root.base.BasePresenter;
 import design.root.base.BaseView;
+import design.root.ui.interfaces.NetCallBack;
 
 /**
  * Created by Administrator on 2018/1/22.
@@ -22,10 +23,10 @@ public interface LoginContract {
 
     abstract class Model extends BaseModel {
         //注册数据操作
-        public abstract boolean register(String userName, String PwdOne);
+        public abstract void register(String userName, String PwdOne, NetCallBack netCallBack);
 
         //登录验证操作
-        public abstract boolean sign(String userName, String Pwd);
+        public abstract void sign(String userName, String Pwd, NetCallBack netCallBack);
     }
 
     abstract class Presenter extends BasePresenter<View, Model> {

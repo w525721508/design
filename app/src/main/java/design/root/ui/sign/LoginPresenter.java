@@ -1,6 +1,8 @@
 package design.root.ui.sign;
 
 
+import design.root.entity.UserEntity;
+import design.root.ui.interfaces.NetCallBack;
 import design.root.ui.sign.fragment.RegisteredFragment;
 import design.root.ui.sign.fragment.SignFragment;
 
@@ -28,18 +30,33 @@ public class LoginPresenter extends design.root.ui.sign.LoginContract.Presenter 
         if (mModel.isNull(userName, PwdOne, pwdTwo)) {
             mView.showToast("注册数据不能为空");
         } else {
-            if (mModel.register(userName, PwdOne)) {
-                mView.registerSucc("注册成功");
-            }
+            mModel.register(userName, PwdOne, new NetCallBack<UserEntity>() {
+                @Override
+                public void succ(UserEntity userEntity) {
+                    mView.registerSucc("注册成功");
+                }
+
+                @Override
+                public void error(String str) {
+
+                }
+            });
+
+
         }
     }
 
     @Override
     public void sign(String userName, String pwd) {
-        if (mModel.sign(userName, pwd)) {
-            mView.signSucc();
-        } else {
-            mView.error("账户密码错误");
-        }
+        mModel.sign(userName, pwd, new NetCallBack<UserEntity>() {
+            @Override
+            public void succ(UserEntity userEntity) {
+                mView.signSucc();
+            }
+            @Override
+            public void error(String str) {
+                mView.error("账户密码错误");
+            }
+        });
     }
 }
