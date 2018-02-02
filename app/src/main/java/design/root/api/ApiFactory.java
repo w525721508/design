@@ -1,7 +1,6 @@
 package design.root.api;
 
 
-import design.root.entity.ApiDataEntity;
 import design.root.entity.HttpMessage;
 import design.root.entity.UserEntity;
 import io.reactivex.Observable;
@@ -14,9 +13,9 @@ import io.reactivex.schedulers.Schedulers;
 
 public class ApiFactory {
     public static class Test {
-        public static Observable<ApiDataEntity> getHotTop() {
-            return obFactory(Api.getInstance().apiService.getHotTopic());
-        }
+//        public static Observable<ApiDataEntity> getHotTop() {
+//            return obFactory(Api.getInstance().apiService.getHotTopic());
+//        }
     }
 
     public static class Login {
