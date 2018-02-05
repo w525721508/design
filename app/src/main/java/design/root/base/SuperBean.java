@@ -1,11 +1,15 @@
 package design.root.base;
 
 
-import java.lang.reflect.Field;
-import java.util.HashMap;
+import android.arch.persistence.room.ColumnInfo;
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.PrimaryKey;
 
-import design.root.supers.annotation.FishColumn;
-import design.root.supers.annotation.FishTable;
+import java.lang.reflect.Field;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Vector;
+
 
 
 /**
@@ -21,77 +25,105 @@ public class SuperBean {
     private HashMap<String, String> cols;
 
     public void toAddData() throws IllegalArgumentException, IllegalAccessException {
+        action = ACTION_ADD;
         Class<? extends SuperBean> object = getClass();
         Field[] fields = object.getDeclaredFields();
-        tableName = object.getAnnotation(FishTable.class).tableName();
-        cols = new HashMap<>();
+        tableName = object.getAnnotation(Entity.class).tableName();
         pks = new HashMap<>();
-        action = ACTION_ADD;
+        Vector<String> isPk = new Vector<>();//寻找表头主键声明
+        Collections.addAll(isPk, object.getAnnotation(Entity.class).primaryKeys());
+        cols = new HashMap<>();
         String colName;
         String colVal = "";
         for (Field field : fields) {
-            FishColumn fishSupport = field.getAnnotation(FishColumn.class);
-            if (fishSupport == null) {
-                continue;
-            }
-            field.setAccessible(true);
-            if (fishSupport.canBeNull() && field.get(this) == null) {
-                continue;
-            }
-            colVal = field.get(this).toString();
-            colName = fishSupport.column();
-            cols.put(colName, colVal);
-            if (fishSupport.pk()) {
-                pks.put(colName, colVal);
+            PrimaryKey primaryKey = field.getAnnotation(PrimaryKey.class);
+            if (primaryKey != null) {
+                //按主键处理
+                field.setAccessible(true);
+                colVal = field.get(this) == null ? null : field.get(this).toString();
+                colName = field.getName();
+                cols.put(colName, colVal);
+                pks.put(colName, colVal);//主键
+            } else {
+                ColumnInfo columnInfo = field.getAnnotation(ColumnInfo.class);
+                if (columnInfo != null) {
+                    field.setAccessible(true);
+                    colVal = field.get(this) == null ? null : field.get(this).toString();
+                    colName = columnInfo.name();
+                    cols.put(colName, colVal);
+                    if (isPk.indexOf(colName) != -1) {
+                        //判断主键
+                        pks.put(colName, colVal);
+                    }
+                }
             }
         }
     }
 
     public void toDeleteData() throws IllegalArgumentException, IllegalAccessException {
+        action = ACTION_DELETE;
         Class<? extends SuperBean> object = getClass();
         Field[] fields = object.getDeclaredFields();
-        action = ACTION_DELETE;
-        tableName = object.getAnnotation(FishTable.class).tableName();
+        tableName = object.getAnnotation(Entity.class).tableName();
         pks = new HashMap<>();
+        Vector<String> isPk = new Vector<>();//寻找表头主键声明
+        Collections.addAll(isPk, object.getAnnotation(Entity.class).primaryKeys());
+        cols = new HashMap<>();
         String colName;
         String colVal = "";
         for (Field field : fields) {
-
-            FishColumn fishSupport = field.getAnnotation(FishColumn.class);
-            if (fishSupport == null) {
-                continue;
-            }
-            field.setAccessible(true);
-            colName = fishSupport.column();
-            if (fishSupport.pk()) {
-                pks.put(colName, colVal);
+            PrimaryKey primaryKey = field.getAnnotation(PrimaryKey.class);//先找主键声明
+            if (primaryKey != null) {
+                //按主键处理
+                field.setAccessible(true);
+                colVal = field.get(this) == null ? null : field.get(this).toString();
+                colName = field.getName();
+                pks.put(colName, colVal);//主键
+            } else {
+                ColumnInfo columnInfo = field.getAnnotation(ColumnInfo.class);
+                if (columnInfo != null) {
+                    field.setAccessible(true);
+                    colVal = field.get(this) == null ? null : field.get(this).toString();
+                    colName = columnInfo.name();
+                    if (isPk.indexOf(colName) != -1) {
+                        //判断主键
+                        pks.put(colName, colVal);
+                    }
+                }
             }
         }
     }
 
     public void toUpdateData() throws IllegalArgumentException, IllegalAccessException {
+        action = ACTION_UPDATE;
         Class<? extends SuperBean> object = getClass();
         Field[] fields = object.getDeclaredFields();
-        tableName = object.getAnnotation(FishTable.class).tableName();
-        cols = new HashMap<>();
+        tableName = object.getAnnotation(Entity.class).tableName();
         pks = new HashMap<>();
-        action = ACTION_UPDATE;
+        Vector<String> isPk = new Vector<>();//寻找表头主键声明
+        Collections.addAll(isPk, object.getAnnotation(Entity.class).primaryKeys());
+        cols = new HashMap<>();
         String colName;
         String colVal = "";
         for (Field field : fields) {
-            FishColumn fishSupport = field.getAnnotation(FishColumn.class);
-            if (fishSupport == null) {
-                continue;
-            }
-            field.setAccessible(true);
-            if (fishSupport.canBeNull() && field.get(this) == null) {
-                continue;
-            }
-            colVal = field.get(this).toString();
-            colName = fishSupport.column();
-            cols.put(colName, colVal);
-            if (fishSupport.pk()) {
-                pks.put(colName, colVal);
+            PrimaryKey primaryKey = field.getAnnotation(PrimaryKey.class);
+            if (primaryKey != null) {
+                //按主键处理
+                field.setAccessible(true);
+                colVal = field.get(this) == null ? null : field.get(this).toString();
+                colName = field.getName();
+                pks.put(colName, colVal);//主键
+            } else {
+                ColumnInfo columnInfo = field.getAnnotation(ColumnInfo.class);
+                if (columnInfo != null) {
+                    field.setAccessible(true);
+                    colVal = field.get(this) == null ? null : field.get(this).toString();
+                    colName = columnInfo.name();
+                    if (isPk.indexOf(colName) != -1) {
+                        //判断主键
+                        pks.put(colName, colVal);
+                    }
+                }
             }
         }
     }
