@@ -1,4 +1,4 @@
-package design.root.supers;
+package design.root.base;
 
 
 import java.lang.reflect.Field;
@@ -107,4 +107,5 @@ public class SuperBean {
     public void setCols(HashMap<String, String> cols) {
         this.cols = cols;
     }
+
 }

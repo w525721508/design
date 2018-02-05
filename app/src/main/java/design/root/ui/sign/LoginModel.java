@@ -3,8 +3,7 @@ package design.root.ui.sign;
 import com.blankj.utilcode.util.LogUtils;
 
 import design.root.api.ApiFactory;
-import design.root.db.DbHelper;
-import design.root.entity.UserEntity;
+import design.root.entity.User;
 import design.root.ui.interfaces.NetCallBack;
 import io.reactivex.functions.Consumer;
 
@@ -17,25 +16,39 @@ public class LoginModel extends LoginContract.Model {
 
     @Override
     public void register(String userName, String PwdOne, NetCallBack netCallBack) {
-        UserEntity userEntity = new UserEntity();
-        userEntity.setUsername(userName);
-        userEntity.setPassword(PwdOne);
-        DbHelper.getInstance().insertUserEntity(userEntity);
+        User user = new User();
+        user.setUsername(userName);
+        user.setPassword(PwdOne);
+        try {
+            user.toAddData();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+        ApiFactory.UserApi.superUser(user).subscribe(new Consumer<String>() {
+            @Override
+            public void accept(String s) throws Exception {
+                netCallBack.succ(s);
+            }
+        }, throwable -> {
+            netCallBack.error(throwable.getMessage());
+        });
+
+//        DbHelper.getInstance().insertUser(user);
     }
 
     @Override
     public void sign(String userName, String pwd, NetCallBack netCallBack) {
-        UserEntity userEntity = new UserEntity();
+        User userEntity = new User();
         userEntity.setUsername(userName);
         userEntity.setPassword(pwd);
-        ApiFactory.Login.login(userEntity).subscribe(new Consumer<UserEntity>() {
+        ApiFactory.UserApi.login(userEntity).subscribe(new Consumer<User>() {
             @Override
-            public void accept(UserEntity userEntity) throws Exception {
+            public void accept(User userEntity) throws Exception {
                 netCallBack.succ(userEntity);
                 LogUtils.e(userEntity.toString());
             }
         }, throwable -> {
-
+            netCallBack.error(throwable.getMessage());
         });
     }
 }

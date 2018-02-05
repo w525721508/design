@@ -4,8 +4,6 @@ import com.google.gson.Gson;
 
 import org.junit.Test;
 
-import design.root.supers.User;
-
 /**
  * SuperBean实体Demo测试
  * Created by Leong on 2018/2/2.
