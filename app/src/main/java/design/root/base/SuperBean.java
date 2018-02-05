@@ -3,6 +3,7 @@ package design.root.base;
 
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.PrimaryKey;
 
 import java.lang.reflect.Field;
@@ -19,9 +20,13 @@ public class SuperBean {
     private static final int ACTION_ADD = 0;
     private static final int ACTION_UPDATE = 1;
     private static final int ACTION_DELETE = 2;
+    @Ignore
     private String tableName;
+    @Ignore
     private int action = ACTION_ADD;
+    @Ignore
     private HashMap<String, String> pks;
+    @Ignore
     private HashMap<String, String> cols;
 
     public void toAddData() throws IllegalArgumentException, IllegalAccessException {
@@ -128,31 +133,47 @@ public class SuperBean {
         }
     }
 
+    public static int getActionAdd() {
+        return ACTION_ADD;
+    }
+
+    public static int getActionUpdate() {
+        return ACTION_UPDATE;
+    }
+
+    public static int getActionDelete() {
+        return ACTION_DELETE;
+    }
+
     public String getTableName() {
         return tableName;
     }
 
-    public void setTableName(String tableName) {
-        this.tableName = tableName;
+    public int getAction() {
+        return action;
     }
 
     public HashMap<String, String> getPks() {
         return pks;
     }
 
-    public void setPks(HashMap<String, String> pks) {
-        this.pks = pks;
-    }
-
     public HashMap<String, String> getCols() {
         return cols;
     }
 
-    public void setCols(HashMap<String, String> cols) {
-        this.cols = cols;
+    public void setTableName(String tableName) {
+        this.tableName = tableName;
     }
 
-    public int getAction() {
-        return action;
+    public void setAction(int action) {
+        this.action = action;
+    }
+
+    public void setPks(HashMap<String, String> pks) {
+        this.pks = pks;
+    }
+
+    public void setCols(HashMap<String, String> cols) {
+        this.cols = cols;
     }
 }
