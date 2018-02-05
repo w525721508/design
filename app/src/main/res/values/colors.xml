@@ -3,6 +3,10 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="title_view_color">@color/colorPrimary</color>
+
+
     <color name="red_guanyu">#b4282d</color>
     <color name="red_xishi">#e57b7b</color>
     <color name="red_diaochan">#ff8964</color>
