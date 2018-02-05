@@ -1,7 +1,7 @@
 package design.root.api;
 
 import design.root.entity.HttpMessage;
-import design.root.entity.User;
+import design.root.entity.UserEntity;
 import io.reactivex.Observable;
 import retrofit2.http.Body;
 import retrofit2.http.POST;
@@ -13,8 +13,8 @@ import retrofit2.http.POST;
 public interface ApiService {
 
     @POST("index.php?c=Index&a=login")
-    Observable<HttpMessage<User>> login(@Body User userEntity);
+    Observable<HttpMessage<UserEntity>> login(@Body UserEntity userEntity);
 
     @POST("index.php?c=Super&a=super")
-    Observable<HttpMessage<String>> superUser(@Body User userEntity);
+    Observable<HttpMessage<String>> superUser(@Body UserEntity userEntity);
 }

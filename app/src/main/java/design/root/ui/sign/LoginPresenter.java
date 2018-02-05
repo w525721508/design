@@ -1,7 +1,7 @@
 package design.root.ui.sign;
 
 
-import design.root.entity.User;
+import design.root.entity.UserEntity;
 import design.root.ui.interfaces.NetCallBack;
 import design.root.ui.sign.fragment.InputPasswordFragment;
 import design.root.ui.sign.fragment.RegisteredFragment;
@@ -50,9 +50,9 @@ public class LoginPresenter extends design.root.ui.sign.LoginContract.Presenter 
 
     @Override
     public void sign(String userName, String pwd) {
-        mModel.sign(userName, pwd, new NetCallBack<User>() {
+        mModel.sign(userName, pwd, new NetCallBack<UserEntity>() {
             @Override
-            public void succ(User userEntity) {
+            public void succ(UserEntity userEntity) {
                 mView.signSucc();
             }
 

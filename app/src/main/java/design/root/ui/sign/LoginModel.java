@@ -3,7 +3,7 @@ package design.root.ui.sign;
 import com.blankj.utilcode.util.LogUtils;
 
 import design.root.api.ApiFactory;
-import design.root.entity.User;
+import design.root.entity.UserEntity;
 import design.root.ui.interfaces.NetCallBack;
 import io.reactivex.functions.Consumer;
 
@@ -16,7 +16,7 @@ public class LoginModel extends LoginContract.Model {
 
     @Override
     public void register(String userName, String PwdOne, NetCallBack netCallBack) {
-        User user = new User();
+        UserEntity user = new UserEntity();
         user.setUsername(userName);
         user.setPassword(PwdOne);
         user.setAge("15");
@@ -41,12 +41,12 @@ public class LoginModel extends LoginContract.Model {
 
     @Override
     public void sign(String userName, String pwd, NetCallBack netCallBack) {
-        User userEntity = new User();
+        UserEntity userEntity = new UserEntity();
         userEntity.setUsername(userName);
         userEntity.setPassword(pwd);
-        ApiFactory.UserApi.login(userEntity).subscribe(new Consumer<User>() {
+        ApiFactory.UserApi.login(userEntity).subscribe(new Consumer<UserEntity>() {
             @Override
-            public void accept(User userEntity) throws Exception {
+            public void accept(UserEntity userEntity) throws Exception {
                 netCallBack.succ(userEntity);
                 LogUtils.e(userEntity.toString());
             }
