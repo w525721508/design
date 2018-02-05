@@ -62,4 +62,23 @@ public class LoginPresenter extends design.root.ui.sign.LoginContract.Presenter 
             }
         });
     }
+
+    @Override
+    public void changePwd(String username, String PwdOne, String PwdTwo) {
+        if (mModel.isNull(username, PwdOne, PwdTwo)) {
+            mView.showToast("修改密码数据不能为空");
+        } else {
+            mModel.changePwd(username, PwdOne, PwdTwo, new NetCallBack() {
+                @Override
+                public void succ(Object o) {
+                    mView.chagePwdSucc();
+                }
+
+                @Override
+                public void error(String str) {
+                    mView.error(str);
+                }
+            });
+        }
+    }
 }

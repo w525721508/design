@@ -5,8 +5,7 @@ import android.graphics.drawable.Drawable;
 import android.text.InputFilter;
 import android.text.InputType;
 import android.view.View;
-
-import com.blankj.utilcode.util.ToastUtils;
+import android.widget.EditText;
 
 import design.root.R;
 import design.root.base.BaseFragment;
@@ -15,9 +14,6 @@ import design.root.ui.sign.LoginPresenter;
 import design.root.util.OnClickListener;
 
 /**
- * 输入密码界面
- * <p>
- * 注册第二步输入密码界面
  */
 public class InputPasswordFragment extends BaseFragment<LoginPresenter,
         FragmentInputPasswordBinding> {
@@ -34,13 +30,6 @@ public class InputPasswordFragment extends BaseFragment<LoginPresenter,
 
     @Override
     public void initView() {
-        mViewBinding.icTitle.tvTitle.setText("输入密码");
-        mViewBinding.icTitle.setOnClickListener(new OnClickListener() {
-            @Override
-            protected void myOnClickListener(View v) {
-                pop();
-            }
-        });
         InputFilter[] inputFilter = new InputFilter[]{new InputFilter.LengthFilter(6)};
         mViewBinding.etOnePassword.setInputType(InputType.TYPE_CLASS_NUMBER | InputType
                 .TYPE_NUMBER_VARIATION_PASSWORD);
@@ -51,80 +40,50 @@ public class InputPasswordFragment extends BaseFragment<LoginPresenter,
         mViewBinding.setOnClickListener(view -> {
             switch (view.getId()) {
                 case R.id.btn_next: {
-                    if (checkPwd()) {
-                        if (checkLenth()) {
-//                            mPresenter.getLoginBean().setPwd(mViewBinding.etOnePassword
-//                                    .getText()
-//                                    .toString());
-//                            mPresenter.createStoreFragment.setStartway(1);
-//                            start(mPresenter.createStoreFragment);
-                        } else {
-                            ToastUtils.showLong("密码必须为6位的数字");
-                        }
-                    } else {
-                        ToastUtils.showLong("密码输入为空，或者两次密码输入不一致");
-                    }
+                    mPresenter.changePwd(mViewBinding.etPhone.getText().toString(), mViewBinding
+                            .etOnePassword.getText().toString(), mViewBinding.etTwoPassword
+                            .getText().toString());
                 }
                 break;
                 case R.id.tv_existing_account: {
-                    try {
-//                        popTo(mPresenter.signInFragment.getClass(), false);
-                    } catch (Exception e) {
-
-                    }
+                    pop();
                 }
                 break;
-                default: {
-
-                }
-                break;
+            }
+        });
+        mViewBinding.etPhone.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                switchIcon(mViewBinding.etPhone, b, R.mipmap.login_username2, R.mipmap
+                        .login_username1);
             }
         });
         mViewBinding.etOnePassword.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View view, boolean b) {
-                Resources res = getResources();
-                Drawable img_off;
-                if (b) {
-                    img_off = res.getDrawable(R.mipmap.login_pwd02);
-                    img_off.setBounds(0, 0, img_off.getMinimumWidth(), img_off.getMinimumHeight());
-                    mViewBinding.etOnePassword.setCompoundDrawables(img_off, null, null, null);
-                } else {
-                    img_off = res.getDrawable(R.mipmap.login_pwd01);
-                    img_off.setBounds(0, 0, img_off.getMinimumWidth(), img_off.getMinimumHeight());
-                    mViewBinding.etOnePassword.setCompoundDrawables(img_off, null, null, null);
-                }
+                switchIcon(mViewBinding.etOnePassword, b, R.mipmap.login_pwd02, R.mipmap
+                        .login_pwd01);
             }
         });
         mViewBinding.etTwoPassword.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View view, boolean b) {
-                Resources res = getResources();
-                Drawable img_off;
-                if (b) {
-                    img_off = res.getDrawable(R.mipmap.pwd_two02);
-                    img_off.setBounds(0, 0, img_off.getMinimumWidth(), img_off.getMinimumHeight());
-                    mViewBinding.etTwoPassword.setCompoundDrawables(img_off, null, null, null);
-                } else {
-                    img_off = res.getDrawable(R.mipmap.pwd_two01);
-                    img_off.setBounds(0, 0, img_off.getMinimumWidth(), img_off.getMinimumHeight());
-                    mViewBinding.etTwoPassword.setCompoundDrawables(img_off, null, null, null);
-                }
+                switchIcon(mViewBinding.etTwoPassword, b, R.mipmap.pwd_two02, R.mipmap
+                        .pwd_two01);
             }
         });
     }
 
-    public void setStartway(int _startWay) {
-        startway = _startWay;
-    }
 
-    private boolean checkPwd() {
-        onePwd = mViewBinding.etOnePassword.getText().toString();
-        twoPwd = mViewBinding.etTwoPassword.getText().toString();
-        return !(onePwd.isEmpty() || twoPwd.isEmpty() || (!(onePwd.equals(twoPwd))));
-    }
-
-    private boolean checkLenth() {
-        return !(onePwd.length() < 6 || twoPwd.length() < 6);
+    private void switchIcon(EditText view, Boolean b, int iconIdOne, int iconTwo) {
+        Resources res = getResources();
+        Drawable img_off;
+        if (b) {
+            img_off = res.getDrawable(iconIdOne);
+        } else {
+            img_off = res.getDrawable(iconTwo);
+        }
+        img_off.setBounds(0, 0, img_off.getMinimumWidth(), img_off.getMinimumHeight());
+        view.setCompoundDrawables(img_off, null, null, null);
     }
 }
