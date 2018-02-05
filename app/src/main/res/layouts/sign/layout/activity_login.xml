@@ -13,11 +13,11 @@
                                                  android:layout_width="match_parent"
                                                  android:layout_height="match_parent">
 
-        <include
+        <design.root.ui.view.TitleView
             android:id="@+id/ic_title"
-            layout="@layout/title"
-            app:layout_constraintBottom_toTopOf="@+id/fl"
-            app:layout_constraintTop_toTopOf="parent"></include>
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:title_text="标题"/>
 
         <FrameLayout
             android:id="@+id/fl"
