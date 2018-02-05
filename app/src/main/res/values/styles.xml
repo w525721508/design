@@ -33,6 +33,23 @@
         <item name="android:padding">@dimen/all_bounced_spacing</item>
     </style>
 
+    <style name="editText_new" parent="view_base">
+        <item name="android:background">@drawable/selector_white_background_stroke</item>
+        <item name="android:padding">@dimen/et_padding</item>
+        <item name="android:saveEnabled">false</item>
+        <item name="android:gravity">center|left</item>
+        <item name="android:textSize">@dimen/et_textsize</item>
+        <item name="android:textColorHint">@color/hint</item>
+    </style>
+
+    <style name="button" parent="view_base">
+        <item name=" android:background">@drawable/red_border</item>
+        <item name=" android:saveEnabled">false</item>
+        <item name="android:textSize">@dimen/et_textsize</item>
+        <item name=" android:textColor">@color/white_caocao</item>
+        <item name="android:textColorHint">@color/hint</item>
+    </style>
+
     <style name="button_passive">
         <item name="android:background">@drawable/selector_gradient_gray_button_background</item>
         <item name="android:textColor">@drawable/selector_gray_button_text_color</item>
@@ -62,6 +79,7 @@
         <item name="android:textColor">@color/black_baozheng</item>
         <item name="android:textColorHint">@color/black_likui</item>
     </style>
+
     <style name="editText" parent="view_base">
         <item name="android:background">@drawable/selector_white_background_stroke</item>
         <item name="android:padding">@dimen/et_padding</item>

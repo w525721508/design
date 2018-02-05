@@ -37,7 +37,7 @@ public class SignFragment extends BaseFragment<LoginPresenter, FragmentSignBindi
                     }
                     break;
                     case R.id.tv_forgotPassword: {
-
+                        start(mPresenter.inputPasswordFragment);
                     }
                     break;
                 }

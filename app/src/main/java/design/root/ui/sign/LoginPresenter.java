@@ -2,8 +2,8 @@ package design.root.ui.sign;
 
 
 import design.root.entity.User;
-import design.root.entity.UserEntity;
 import design.root.ui.interfaces.NetCallBack;
+import design.root.ui.sign.fragment.InputPasswordFragment;
 import design.root.ui.sign.fragment.RegisteredFragment;
 import design.root.ui.sign.fragment.SignFragment;
 
@@ -14,6 +14,7 @@ import design.root.ui.sign.fragment.SignFragment;
 public class LoginPresenter extends design.root.ui.sign.LoginContract.Presenter {
     public SignFragment signFragment = new SignFragment();
     public RegisteredFragment registeredFragment = new RegisteredFragment();
+    public InputPasswordFragment inputPasswordFragment = new InputPasswordFragment();
 
 
     @Override
@@ -31,9 +32,9 @@ public class LoginPresenter extends design.root.ui.sign.LoginContract.Presenter 
         if (mModel.isNull(userName, PwdOne, pwdTwo)) {
             mView.showToast("注册数据不能为空");
         } else {
-            mModel.register(userName, PwdOne, new NetCallBack<UserEntity>() {
+            mModel.register(userName, PwdOne, new NetCallBack<String>() {
                 @Override
-                public void succ(UserEntity userEntity) {
+                public void succ(String userEntity) {
                     mView.registerSucc("注册成功");
                 }
 
