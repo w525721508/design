@@ -30,21 +30,19 @@ public class SuperBean {
         String colName;
         String colVal = "";
         for (Field field : fields) {
-            if (field == null) {
+            FishColumn fishSupport = field.getAnnotation(FishColumn.class);
+            if (fishSupport == null) {
                 continue;
             }
-            FishColumn fishSupport = field.getAnnotation(FishColumn.class);
-            if (null != fishSupport && null != field.get(this)) {
-                field.setAccessible(true);
-                if (fishSupport.canBeNull() && field.get(this) == null) {
-                    continue;
-                }
-                colVal = field.get(this).toString();
-                colName = fishSupport.column();
-                cols.put(colName, colVal);
-                if (fishSupport.pk()) {
-                    pks.put(colName, colVal);
-                }
+            field.setAccessible(true);
+            if (fishSupport.canBeNull() && field.get(this) == null) {
+                continue;
+            }
+            colVal = field.get(this).toString();
+            colName = fishSupport.column();
+            cols.put(colName, colVal);
+            if (fishSupport.pk()) {
+                pks.put(colName, colVal);
             }
         }
     }
@@ -58,10 +56,11 @@ public class SuperBean {
         String colName;
         String colVal = "";
         for (Field field : fields) {
-            if (field == null) {
+
+            FishColumn fishSupport = field.getAnnotation(FishColumn.class);
+            if (fishSupport == null) {
                 continue;
             }
-            FishColumn fishSupport = field.getAnnotation(FishColumn.class);
             field.setAccessible(true);
             colName = fishSupport.column();
             if (fishSupport.pk()) {
@@ -80,12 +79,12 @@ public class SuperBean {
         String colName;
         String colVal = "";
         for (Field field : fields) {
-            if (field == null) {
+            FishColumn fishSupport = field.getAnnotation(FishColumn.class);
+            if (fishSupport == null) {
                 continue;
             }
-            FishColumn fishSupport = field.getAnnotation(FishColumn.class);
             field.setAccessible(true);
-            if (fishSupport.canBeNull() && field.get(this).toString() == null) {
+            if (fishSupport.canBeNull() && field.get(this) == null) {
                 continue;
             }
             colVal = field.get(this).toString();
@@ -121,4 +120,7 @@ public class SuperBean {
         this.cols = cols;
     }
 
+    public int getAction() {
+        return action;
+    }
 }
