@@ -11,7 +11,7 @@ import design.root.base.BaseEntity;
  * Created by Administrator on 2018/1/25.
  */
 
-@Entity
+@Entity(tableName = "users")
 public class UserEntity extends BaseEntity {
     @PrimaryKey(autoGenerate = true)
     private long id;
