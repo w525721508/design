@@ -19,6 +19,9 @@ public class LoginModel extends LoginContract.Model {
         User user = new User();
         user.setUsername(userName);
         user.setPassword(PwdOne);
+        user.setAge("15");
+        user.setMobile("10086");
+        user.setSex("保密");
         try {
             user.toAddData();
         } catch (IllegalAccessException e) {

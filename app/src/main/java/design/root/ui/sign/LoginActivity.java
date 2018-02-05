@@ -33,6 +33,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter, LoginModel, Acti
 
     @Override
     public void registerSucc(String toastMsg) {
+        ToastUtils.showLong(toastMsg);
         pop();
     }
 

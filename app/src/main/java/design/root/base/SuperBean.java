@@ -31,14 +31,17 @@ public class SuperBean {
         String colVal = "";
         for (Field field : fields) {
             FishColumn fishSupport = field.getAnnotation(FishColumn.class);
-            field.setAccessible(true);
-            if (fishSupport.canBeNull() && (colVal = field.get(this).toString()) == null) {
-                continue;
-            }
-            colName = fishSupport.column();
-            cols.put(colName, colVal);
-            if (fishSupport.pk()) {
-                pks.put(colName, colVal);
+            if (null != fishSupport && null != field.get(this)) {
+                field.setAccessible(true);
+                if (fishSupport.canBeNull() && (colVal = field.get(this)
+                        .toString()) == null) {
+                    continue;
+                }
+                colName = fishSupport.column();
+                cols.put(colName, colVal);
+                if (fishSupport.pk()) {
+                    pks.put(colName, colVal);
+                }
             }
         }
     }

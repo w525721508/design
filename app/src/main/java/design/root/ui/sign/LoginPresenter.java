@@ -1,6 +1,7 @@
 package design.root.ui.sign;
 
 
+import design.root.entity.User;
 import design.root.entity.UserEntity;
 import design.root.ui.interfaces.NetCallBack;
 import design.root.ui.sign.fragment.RegisteredFragment;
@@ -38,7 +39,7 @@ public class LoginPresenter extends design.root.ui.sign.LoginContract.Presenter 
 
                 @Override
                 public void error(String str) {
-
+                    mView.error(str);
                 }
             });
 
@@ -48,11 +49,12 @@ public class LoginPresenter extends design.root.ui.sign.LoginContract.Presenter 
 
     @Override
     public void sign(String userName, String pwd) {
-        mModel.sign(userName, pwd, new NetCallBack<UserEntity>() {
+        mModel.sign(userName, pwd, new NetCallBack<User>() {
             @Override
-            public void succ(UserEntity userEntity) {
+            public void succ(User userEntity) {
                 mView.signSucc();
             }
+
             @Override
             public void error(String str) {
                 mView.error("账户密码错误");
