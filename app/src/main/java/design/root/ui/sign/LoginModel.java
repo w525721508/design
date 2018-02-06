@@ -54,4 +54,27 @@ public class LoginModel extends LoginContract.Model {
             netCallBack.error(throwable.getMessage());
         });
     }
+
+    @Override
+    public void changePwd(String username, String PwdOne, String PwdTwo, NetCallBack netCallBack) {
+        UserEntity user = new UserEntity();
+        user.setUsername(username);
+        user.setPassword(PwdTwo);
+        user.setAge("15");
+        user.setMobile("10086");
+        user.setSex("保密");
+        try {
+            user.toUpdateData();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+        ApiFactory.UserApi.superUser(user).subscribe(new Consumer<String>() {
+            @Override
+            public void accept(String s) throws Exception {
+                netCallBack.succ(s);
+            }
+        }, throwable -> {
+            netCallBack.error(throwable.getMessage());
+        });
+    }
 }

@@ -46,7 +46,7 @@
                     android:drawableLeft="@mipmap/login_username1"
                     android:drawablePadding="@dimen/all_padding"
                     android:ems="10"
-                    android:hint="@string/login_et_phone_hint"
+                    android:hint="@string/login_et_username_hint"
                     android:inputType="phone"
                     android:maxLength="11"
                     android:text="1"/>

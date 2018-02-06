@@ -49,7 +49,7 @@
     <string name="all_go_back">返回</string>
     <string name="login_et_password_hint">请输入密码</string>
     <string name="login_et_password_two_hint">请再次输入密码</string>
-    <string name="login_et_phone_hint">请输入手机号</string>
+    <string name="login_et_username_hint">请输入用户名</string>
     <string name="login_signinfragmentfragment_btn_login">登录</string>
     <string name="login_registerfragmentfragment_btn_register">注册</string>
     <!--输入密码界面-->

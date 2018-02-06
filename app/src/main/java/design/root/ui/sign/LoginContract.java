@@ -19,6 +19,9 @@ public interface LoginContract {
 
         //登录成功
         void signSucc();
+
+        //修改密码成功
+        void chagePwdSucc();
     }
 
     abstract class Model extends BaseModel {
@@ -27,6 +30,10 @@ public interface LoginContract {
 
         //登录验证操作
         public abstract void sign(String userName, String Pwd, NetCallBack netCallBack);
+
+        //修改密码
+        public abstract void changePwd(String username, String PwdOne, String PwdTwo, NetCallBack
+                netCallBack);
     }
 
     abstract class Presenter extends BasePresenter<View, Model> {
@@ -35,6 +42,9 @@ public interface LoginContract {
 
         //登录
         public abstract void sign(String userName, String Pwd);
+
+        //修改密码
+        public abstract void changePwd(String username, String PwdOne, String PwdTwo);
     }
 
 

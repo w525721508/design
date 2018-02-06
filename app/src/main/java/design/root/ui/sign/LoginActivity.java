@@ -9,7 +9,7 @@ import design.root.databinding.ActivityLoginBinding;
 import design.root.ui.main.MainActivity;
 
 public class LoginActivity extends BaseActivity<LoginPresenter, LoginModel, ActivityLoginBinding>
-        implements  LoginContract.View {
+        implements LoginContract.View {
 
     @Override
     public int getLayoutId() {
@@ -41,6 +41,12 @@ public class LoginActivity extends BaseActivity<LoginPresenter, LoginModel, Acti
     public void signSucc() {
         ActivityUtils.startActivity(MainActivity.class);
         ActivityUtils.finishActivity(LoginActivity.class);
+    }
+
+    @Override
+    public void chagePwdSucc() {
+        ToastUtils.showLong("修改成功");
+        pop();
     }
 
 
