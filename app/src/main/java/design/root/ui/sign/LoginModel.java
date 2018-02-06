@@ -22,11 +22,11 @@ public class LoginModel extends LoginContract.Model {
         user.setAge("15");
         user.setMobile("10086");
         user.setSex("保密");
-        try {
+//        try {
             user.toAddData();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        }
+//        } catch (IllegalAccessException e) {
+//            e.printStackTrace();
+//        }
         ApiFactory.UserApi.superUser(user).subscribe(new Consumer<String>() {
             @Override
             public void accept(String s) throws Exception {

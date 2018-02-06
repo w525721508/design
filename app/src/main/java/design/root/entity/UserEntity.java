@@ -3,6 +3,7 @@ package design.root.entity;
 
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.PrimaryKey;
 
 import design.root.base.BaseEntity;
@@ -25,6 +26,27 @@ public class UserEntity extends BaseEntity {
     private String sex;
     @ColumnInfo(name = "age")
     private String age;
+
+    /**
+     * 表名
+     */
+    public enum table {
+        users
+    }
+
+    /**
+     * 主键
+     */
+    public enum primarykeys {
+        username
+    }
+
+    /**
+     * 列
+     */
+    public enum columns {
+        password, mobile, sex, age
+    }
 
     public long getId() {
         return id;
