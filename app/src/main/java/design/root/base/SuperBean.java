@@ -29,8 +29,8 @@ public class SuperBean {
     public boolean toAddData() {
         try {
             action = ACTION_ADD;
-            Class<?> table =  Class.forName((getClass().getName() + "$table"));// 表
-            Class<?> primaryKeys =  Class.forName((getClass().getName() + "$primarykeys"));// 主键
+            Class<?> table = Class.forName((getClass().getName() + "$table"));// 表
+            Class<?> primaryKeys = Class.forName((getClass().getName() + "$primarykeys"));// 主键
             Class<?> columns = Class.forName((getClass().getName() + "$columns"));// 列
             tableName = table.getEnumConstants()[0].toString();
             pks = new HashMap<>();
@@ -56,9 +56,9 @@ public class SuperBean {
     public boolean toDeleteData() {
         try {
             action = ACTION_DELETE;
-            Class<?> table = ClassLoader.getSystemClassLoader().loadClass((getClass().getName() + "$table"));// 表
-            Class<?> primaryKeys = ClassLoader.getSystemClassLoader().loadClass((getClass().getName() + "$primarykeys"));// 主键
-            tableName = table.getFields()[0].getName();
+            Class<?> table = Class.forName((getClass().getName() + "$table"));// 表
+            Class<?> primaryKeys = Class.forName((getClass().getName() + "$primarykeys"));// 主键
+            tableName = table.getEnumConstants()[0].toString();
             pks = new HashMap<>();
             this.cols = new HashMap<>();
             Field tmp;
@@ -76,10 +76,10 @@ public class SuperBean {
     public boolean toUpdateData() {
         try {
             action = ACTION_UPDATE;
-            Class<?> table = ClassLoader.getSystemClassLoader().loadClass((getClass().getName() + "$table"));// 表
-            Class<?> primaryKeys = ClassLoader.getSystemClassLoader().loadClass((getClass().getName() + "$primarykeys"));// 主键
-            Class<?> columns = ClassLoader.getSystemClassLoader().loadClass((getClass().getName() + "$columns"));// 列
-            tableName = table.getFields()[0].getName();
+            Class<?> table = Class.forName((getClass().getName() + "$table"));// 表
+            Class<?> primaryKeys = Class.forName((getClass().getName() + "$primarykeys"));// 主键
+            Class<?> columns = Class.forName((getClass().getName() + "$columns"));// 列
+            tableName = table.getEnumConstants()[0].toString();
             pks = new HashMap<>();
             cols = new HashMap<>();
             Field tmp;
@@ -103,7 +103,7 @@ public class SuperBean {
         try {
             action = ACTION_VERIFY;
             Class<?> table = ClassLoader.getSystemClassLoader().loadClass((getClass().getName() + "$table"));// 表
-            tableName = table.getFields()[0].getName();
+            tableName = table.getEnumConstants()[0].toString();
             pks = new HashMap<>();
             this.cols = new HashMap<>();
             Field tmp;

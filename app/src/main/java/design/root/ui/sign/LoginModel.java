@@ -55,7 +55,7 @@ public class LoginModel extends LoginContract.Model {
         });
     }
 
-    @Override
+//    @Override
     public void changePwd(String username, String PwdOne, String PwdTwo, NetCallBack netCallBack) {
         UserEntity user = new UserEntity();
         user.setUsername(username);
@@ -63,11 +63,11 @@ public class LoginModel extends LoginContract.Model {
         user.setAge("15");
         user.setMobile("10086");
         user.setSex("保密");
-        try {
+//        try {
             user.toUpdateData();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        }
+//        } catch (IllegalAccessException e) {
+//            e.printStackTrace();
+//        }
         ApiFactory.UserApi.superUser(user).subscribe(new Consumer<String>() {
             @Override
             public void accept(String s) throws Exception {

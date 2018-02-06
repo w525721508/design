@@ -45,7 +45,7 @@ public class UserEntity extends BaseEntity {
      * 列
      */
     public enum columns {
-        password, mobile, sex, age
+        username,password, mobile, sex, age
     }
 
     public long getId() {
