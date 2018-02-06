@@ -30,7 +30,7 @@ public class ApiFactory {
 
     public static <T> Observable<T> obFactory(Observable<HttpMessage<T>> observable) {
         return observable.onErrorReturn(new ErrorFilter<>())
-                .map(new ResultFilter<>())
+                .map(new ResultFilter<T>())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .retryWhen(new RetryHelper(3));

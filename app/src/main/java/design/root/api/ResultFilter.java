@@ -3,8 +3,11 @@ package design.root.api;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 
+import java.lang.reflect.ParameterizedType;
+
 import design.root.Constant;
 import design.root.entity.HttpMessage;
+import design.root.util.InstanceUtil;
 import io.reactivex.functions.Function;
 
 /**
@@ -18,6 +21,11 @@ class ResultFilter<T> implements Function<HttpMessage<T>, T> {
     public T apply(HttpMessage<T> tHttpMessage) throws Exception {
         switch (tHttpMessage.getReturnCode()) {
             case Constant.RETURN_CODE.SERVER_OK: {
+                if (null == tHttpMessage.getReturnData()) {
+                    Class mReturnDataClass = (Class) ((ParameterizedType) (this.getClass()
+                            .getGenericSuperclass())).getActualTypeArguments()[0];
+                    return InstanceUtil.getInstance(mReturnDataClass);
+                }
                 return tHttpMessage.getReturnData();
             }
             case Constant.RETURN_CODE.SERVER_ERR: {
