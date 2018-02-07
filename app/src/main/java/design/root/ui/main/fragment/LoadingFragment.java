@@ -55,7 +55,7 @@ public class LoadingFragment extends DialogFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View layoutView = inflater.inflate(R.layout.dialog_loading, container, false);
+        View layoutView = inflater.inflate(R.layout.dialog_loadings, container, false);
         layoutView.setOnClickListener(mSpaceClickListener);
         mDlgContent = layoutView.findViewById(R.id.tip);
         if (!TextUtils.isEmpty(mContentTxt.toString())) {

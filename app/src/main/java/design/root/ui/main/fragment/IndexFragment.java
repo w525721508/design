@@ -10,8 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import design.root.R;
+import design.root.base.BaseActivity;
 import design.root.base.BaseFragment;
 import design.root.databinding.FragmentIndexBinding;
+import design.root.ui.dialog.LoadingDialog;
 import design.root.ui.main.MainPresenter;
 import design.root.ui.main.adapter.IndexFragmentAdapter;
 
@@ -22,6 +24,7 @@ import design.root.ui.main.adapter.IndexFragmentAdapter;
 public class IndexFragment extends BaseFragment<MainPresenter,
         FragmentIndexBinding> {
     IndexFragmentAdapter indexFragmentAdapter;
+    LoadingDialog loadingDialog = new LoadingDialog();
 
     @Override
     protected int getLayoutId() {
@@ -59,16 +62,17 @@ public class IndexFragment extends BaseFragment<MainPresenter,
      * 加载更多
      */
     private void loadMore() {
+        loadingDialog.show((BaseActivity) getActivity());
         mViewBinding.rlTest.postDelayed(new Runnable() {
             @Override
             public void run() {
                 mViewBinding.srl.setRefreshing(false);
                 indexFragmentAdapter.addData("789");
                 indexFragmentAdapter.loadMoreComplete();
-
                 LogUtils.e("加载更多");
+                loadingDialog.dismiss();
             }
-        }, 500);
+        }, 2000);
 
 
     }
