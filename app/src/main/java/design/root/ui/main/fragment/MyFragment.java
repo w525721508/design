@@ -18,6 +18,6 @@ public class MyFragment extends BaseFragment<MainPresenter, FragmentMyBinding> {
 
     @Override
     public void initView() {
-
+        mViewBinding.ic.tvTitle.setText("我的");
     }
 }

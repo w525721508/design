@@ -17,3 +17,4 @@ public class BaseEntity extends SuperBean {
         this.appid = appid;
     }
 }
+

@@ -14,13 +14,23 @@
         android:background="@color/white_caocao"
         android:gravity="center"
         android:orientation="vertical"
-        android:padding="@dimen/all_bounced_padding">
+        >
 
-        <TextView
+        <include
+            android:id="@+id/ic"
+            layout="@layout/title"
+            android:background="@drawable/up_down_line_gray"></include>
+
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/srl"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="主页"/>
+            android:layout_height="match_parent">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rl_test"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
+        </android.support.v4.widget.SwipeRefreshLayout>
 
 
     </LinearLayout>

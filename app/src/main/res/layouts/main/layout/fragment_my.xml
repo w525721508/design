@@ -14,7 +14,12 @@
         android:background="@color/white_caocao"
         android:gravity="center"
         android:orientation="vertical"
-        android:padding="@dimen/all_bounced_padding">
+        >
+
+        <include
+            android:id="@+id/ic"
+            layout="@layout/title"
+            android:background="@drawable/up_down_line_gray"></include>
 
         <TextView
             android:layout_width="match_parent"

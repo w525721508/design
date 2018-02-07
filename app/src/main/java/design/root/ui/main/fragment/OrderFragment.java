@@ -18,6 +18,6 @@ public class OrderFragment extends BaseFragment<MainPresenter, FragmentOrderBind
 
     @Override
     public void initView() {
-
+        mViewBinding.ic.tvTitle.setText("订单");
     }
 }
