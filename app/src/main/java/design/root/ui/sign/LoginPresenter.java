@@ -1,11 +1,15 @@
 package design.root.ui.sign;
 
 
+import android.support.v4.app.FragmentTransaction;
+
 import design.root.entity.UserEntity;
 import design.root.ui.interfaces.NetCallBack;
+import design.root.ui.main.fragment.LoadingFragment;
 import design.root.ui.sign.fragment.InputPasswordFragment;
 import design.root.ui.sign.fragment.RegisteredFragment;
 import design.root.ui.sign.fragment.SignFragment;
+import design.root.util.FragmentHelper;
 
 /**
  * Created by Administrator on 2018/1/22.
@@ -32,14 +36,18 @@ public class LoginPresenter extends design.root.ui.sign.LoginContract.Presenter 
         if (mModel.isNull(userName, PwdOne, pwdTwo)) {
             mView.showToast("注册数据不能为空");
         } else {
+            LoadingFragment fragment = LoadingFragment.newInstants("loading", true, true, true);
+            FragmentHelper.addDialogFragment(signFragment.getFragmentManager(), fragment, LoadingFragment.TAG);
             mModel.register(userName, PwdOne, new NetCallBack<String>() {
                 @Override
                 public void succ(String userEntity) {
+                    FragmentHelper.removeFragment(signFragment.getFragmentManager(), LoadingFragment.TAG);
                     mView.registerSucc("注册成功");
                 }
 
                 @Override
                 public void error(String str) {
+                    FragmentHelper.removeFragment(signFragment.getFragmentManager(), LoadingFragment.TAG);
                     mView.error(str);
                 }
             });
@@ -50,15 +58,19 @@ public class LoginPresenter extends design.root.ui.sign.LoginContract.Presenter 
 
     @Override
     public void sign(String userName, String pwd) {
+        LoadingFragment fragment = LoadingFragment.newInstants("loading", true, true, true);
+        FragmentHelper.addDialogFragment(signFragment.getFragmentManager(), fragment, LoadingFragment.TAG);
         mModel.sign(userName, pwd, new NetCallBack<UserEntity>() {
             @Override
             public void succ(UserEntity userEntity) {
                 mView.signSucc();
+                FragmentHelper.removeFragment(signFragment.getFragmentManager(), LoadingFragment.TAG);
             }
 
             @Override
             public void error(String str) {
                 mView.error("账户密码错误");
+                FragmentHelper.removeFragment(signFragment.getFragmentManager(), LoadingFragment.TAG);
             }
         });
     }
