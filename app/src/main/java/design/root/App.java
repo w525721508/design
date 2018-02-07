@@ -10,6 +10,7 @@ import com.tencent.bugly.crashreport.CrashReport;
  */
 
 public class App extends Application {
+    public String APPID = "test1";
     public static App instance;
 
     @Override

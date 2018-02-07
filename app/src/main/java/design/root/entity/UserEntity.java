@@ -3,7 +3,6 @@ package design.root.entity;
 
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
-import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.PrimaryKey;
 
 import design.root.base.BaseEntity;
@@ -14,8 +13,6 @@ import design.root.base.BaseEntity;
 
 @Entity(tableName = "users")
 public class UserEntity extends BaseEntity {
-    @ColumnInfo(name = "appid")
-    private String appid;
     @PrimaryKey(autoGenerate = true)
     private long id;
     @ColumnInfo(name = "username")
@@ -48,14 +45,6 @@ public class UserEntity extends BaseEntity {
      */
     public enum columns {
         appid, username, password, mobile, sex, age
-    }
-
-    public String getAppid() {
-        return appid;
-    }
-
-    public void setAppid(String appid) {
-        this.appid = appid;
     }
 
     public long getId() {
