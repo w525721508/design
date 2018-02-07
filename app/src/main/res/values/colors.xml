@@ -39,6 +39,9 @@
 
     <color name="purple_yanqing">#6590e6</color>
     <color name="hint">#DCDCDC</color>
+
+    <!-- 半透明 -->
+    <color name="background_dialog">#99000000</color>
     <!-- 全透明 -->
     <color name="all_transparent">#00000000</color>
 </resources>
