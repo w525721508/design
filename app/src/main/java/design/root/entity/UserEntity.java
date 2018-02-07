@@ -14,6 +14,8 @@ import design.root.base.BaseEntity;
 
 @Entity(tableName = "users")
 public class UserEntity extends BaseEntity {
+    @ColumnInfo(name = "appid")
+    private String appid;
     @PrimaryKey(autoGenerate = true)
     private long id;
     @ColumnInfo(name = "username")
@@ -38,14 +40,22 @@ public class UserEntity extends BaseEntity {
      * 主键
      */
     public enum primarykeys {
-        username
+        appid, usdername
     }
 
     /**
      * 列
      */
     public enum columns {
-        username,password, mobile, sex, age
+        appid, username, password, mobile, sex, age
+    }
+
+    public String getAppid() {
+        return appid;
+    }
+
+    public void setAppid(String appid) {
+        this.appid = appid;
     }
 
     public long getId() {
