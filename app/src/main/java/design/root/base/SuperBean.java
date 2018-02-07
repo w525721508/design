@@ -37,14 +37,22 @@ public class SuperBean {
             cols = new HashMap<>();
             Field tmp;
             for (Object pk : primaryKeys.getEnumConstants()) {
-                tmp = getClass().getDeclaredField(pk.toString());
+                try {
+                    tmp = getClass().getDeclaredField(pk.toString());
+                } catch (Exception e) {
+                    tmp = getClass().getSuperclass().getDeclaredField(pk.toString());
+                }
                 tmp.setAccessible(true);
                 pks.put(pk.toString(), tmp.get(this));
             }
-            for (Field col : columns.getFields()) {
-                tmp = getClass().getDeclaredField(col.getName());
+            for (Object col : columns.getEnumConstants()) {
+                try {
+                    tmp = getClass().getDeclaredField(col.toString());
+                } catch (Exception e) {
+                    tmp = getClass().getSuperclass().getDeclaredField(col.toString());
+                }
                 tmp.setAccessible(true);
-                cols.put(col.getName(), tmp.get(this));
+                cols.put(col.toString(), tmp.get(this));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -63,7 +71,11 @@ public class SuperBean {
             this.cols = new HashMap<>();
             Field tmp;
             for (Object pk : primaryKeys.getEnumConstants()) {
-                tmp = getClass().getDeclaredField(pk.toString());
+                try {
+                    tmp = getClass().getDeclaredField(pk.toString());
+                } catch (Exception e) {
+                    tmp = getClass().getSuperclass().getDeclaredField(pk.toString());
+                }
                 tmp.setAccessible(true);
                 pks.put(pk.toString(), tmp.get(this));
             }
@@ -84,16 +96,25 @@ public class SuperBean {
             cols = new HashMap<>();
             Field tmp;
             for (Object pk : primaryKeys.getEnumConstants()) {
-                tmp = getClass().getDeclaredField(pk.toString());
+                try {
+                    tmp = getClass().getDeclaredField(pk.toString());
+                } catch (Exception e) {
+                    tmp = getClass().getSuperclass().getDeclaredField(pk.toString());
+                }
                 tmp.setAccessible(true);
                 pks.put(pk.toString(), tmp.get(this));
             }
-            for (Field col : columns.getFields()) {
-                tmp = getClass().getDeclaredField(col.getName());
+            for (Object col : columns.getEnumConstants()) {
+                try {
+                    tmp = getClass().getDeclaredField(col.toString());
+                } catch (Exception e) {
+                    tmp = getClass().getSuperclass().getDeclaredField(col.toString());
+                }
                 tmp.setAccessible(true);
-                cols.put(col.getName(), tmp.get(this));
+                cols.put(col.toString(), tmp.get(this));
             }
         } catch (Exception e) {
+            e.printStackTrace();
             return false;
         }
         return true;
@@ -108,7 +129,11 @@ public class SuperBean {
             this.cols = new HashMap<>();
             Field tmp;
             for (Enum<?> col : cols) {
-                tmp = getClass().getDeclaredField(col.toString());
+                try {
+                    tmp = getClass().getDeclaredField(col.toString());
+                } catch (Exception e) {
+                    tmp = getClass().getSuperclass().getDeclaredField(col.toString());
+                }
                 tmp.setAccessible(true);
                 pks.put(col.toString(), tmp.get(this));
             }

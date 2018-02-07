@@ -37,7 +37,7 @@ public class UserEntity extends BaseEntity {
      * 主键
      */
     public enum primarykeys {
-        appid, usdername
+        appid, username
     }
 
     /**
