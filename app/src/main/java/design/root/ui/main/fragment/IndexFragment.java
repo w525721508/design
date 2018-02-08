@@ -3,8 +3,10 @@ package design.root.ui.main.fragment;
 
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
+import android.view.View;
 
 import com.blankj.utilcode.util.LogUtils;
+import com.chad.library.adapter.base.BaseQuickAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,6 +49,13 @@ public class IndexFragment extends BaseFragment<MainPresenter,
                 DividerItemDecoration.VERTICAL));
         mViewBinding.srl.setOnRefreshListener(this::refresh);
         indexFragmentAdapter.setOnLoadMoreListener(this::loadMore, mViewBinding.rlTest);
+        indexFragmentAdapter.openLoadAnimation(BaseQuickAdapter.SCALEIN);
+        indexFragmentAdapter.isFirstOnly(false);
+        indexFragmentAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+            }
+        });
     }
 
     /**

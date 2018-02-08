@@ -19,7 +19,7 @@ public class IndexFragmentAdapter extends BaseAdapter<String, FragmentSignItemBi
 
 
     @Override
-    protected void convert(FragmentSignItemBinding mViewBinding, String item) {
+    protected void convert(FragmentSignItemBinding mViewBinding, String item, int position) {
         mViewBinding.tx.setText(item);
     }
 }

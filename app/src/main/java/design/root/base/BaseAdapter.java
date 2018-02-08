@@ -26,10 +26,10 @@ public abstract class BaseAdapter<T, B extends ViewDataBinding> extends BaseQuic
 
     @Override
     protected void convert(BaseViewHolder helper, T item) {
-        convert((B) helper.mViewBinding, item);
+        convert((B) helper.mViewBinding, item, helper.getLayoutPosition());
     }
 
-    protected abstract void convert(B mViewBinding, T item);
+    protected abstract void convert(B mViewBinding, T item, int position);
 
     @Override
     protected View getItemView(int layoutResId, ViewGroup parent) {
