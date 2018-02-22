@@ -1,7 +1,6 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 26
     defaultConfig {
         applicationId "design.root"
     }
@@ -22,3 +21,8 @@ android {
 apply from: "${rootProject.projectDir}/gradle/gbf/android.gradle"
 
 apply from: "${rootProject.projectDir}/gradle/gbf/dependencies.gradle"
+
+dependencies{
+//    implementation project(':base')
+    compile 'com.design.android:utils:0.1.3'
+}
