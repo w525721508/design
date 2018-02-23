@@ -33,18 +33,21 @@ public class LoginActivity extends BaseActivity<LoginPresenter, LoginModel, Acti
 
     @Override
     public void registerSucc(String toastMsg) {
+        closeLoading();
         ToastUtils.showLong(toastMsg);
         pop();
     }
 
     @Override
     public void signSucc() {
+        closeLoading();
         ActivityUtils.startActivity(MainActivity.class);
         ActivityUtils.finishActivity(LoginActivity.class);
     }
 
     @Override
     public void chagePwdSucc() {
+        closeLoading();
         ToastUtils.showLong("修改成功");
         pop();
     }
@@ -52,6 +55,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter, LoginModel, Acti
 
     @Override
     public void error(String errorMsg) {
+        closeLoading();
         ToastUtils.showLong(errorMsg);
     }
 }

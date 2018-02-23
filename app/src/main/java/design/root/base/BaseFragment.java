@@ -20,8 +20,7 @@ import me.yokeyword.fragmentation.SupportFragment;
  */
 
 public abstract class BaseFragment<P extends design.root.base.BasePresenter, B extends
-        ViewDataBinding> extends
-        SupportFragment {
+        ViewDataBinding> extends SupportFragment {
     public P mPresenter;
     public B mViewBinding;
     public Context mContext;
@@ -55,6 +54,14 @@ public abstract class BaseFragment<P extends design.root.base.BasePresenter, B e
     public void onDetach() {
         super.onDetach();
         KeyboardUtils.hideSoftInput(getActivity());
+    }
+
+    public void startLoading() {
+        BaseActivity.loadingDialog.show((BaseActivity) getActivity());
+    }
+
+    public void closeLoading() {
+        BaseActivity.loadingDialog.dismiss();
     }
 
     public CharSequence getTabTitle() {

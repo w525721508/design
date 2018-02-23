@@ -2,6 +2,8 @@ package design.root.db;
 
 import android.arch.persistence.room.Room;
 
+import java.util.List;
+
 import design.root.App;
 import design.root.entity.UserEntity;
 
@@ -37,9 +39,18 @@ public class DbHelper {
         db.endTransaction();
     }
 
-    public boolean queryUserEntity(String phone, String pwd) {
-        db = getAppDatabaseInstance();
-        return db.userEntityDao().checkUserName(phone, pwd).size() > 0;
+    public boolean queryUserEntityToBoolean(UserEntity userEntity) {
+        return queryUserEntityToList(userEntity).size() > 0;
     }
 
+    public List<UserEntity> queryUserEntityToList(UserEntity userEntity) {
+        db = getAppDatabaseInstance();
+        return db.userEntityDao().checkUserName(userEntity.getUsername(), userEntity.getPassword
+                ());
+    }
+
+    public boolean updateUserEntity(UserEntity userEntity) {
+        db = getAppDatabaseInstance();
+        return db.userEntityDao().update(userEntity) > 0;
+    }
 }

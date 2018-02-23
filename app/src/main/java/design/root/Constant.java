@@ -30,5 +30,6 @@ public class Constant {
 
     public final class SYSTEM {
         public static final String DIALOGISDISMISS = "DIALOGISDISMISS";
+        public static final boolean NEEDSERVER = false;
     }
 }

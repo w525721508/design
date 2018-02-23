@@ -186,5 +186,4 @@ public class SuperBean {
     public void setCols(HashMap<String, Object> cols) {
         this.cols = cols;
     }
-
 }

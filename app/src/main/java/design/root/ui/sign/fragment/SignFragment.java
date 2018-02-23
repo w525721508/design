@@ -28,6 +28,7 @@ public class SignFragment extends BaseFragment<LoginPresenter, FragmentSignBindi
             public void onClick(View v) {
                 switch (v.getId()) {
                     case R.id.btn_login: {
+                        startLoading();
                         mPresenter.sign(mViewBinding.etPhone.getText().toString(), mViewBinding
                                 .etPwd.getText().toString());
                     }

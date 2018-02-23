@@ -9,6 +9,7 @@ import android.view.View;
 
 import java.lang.reflect.ParameterizedType;
 
+import design.root.ui.dialog.LoadingDialog;
 import design.root.util.InstanceUtil;
 import me.yokeyword.fragmentation.ISupportFragment;
 import me.yokeyword.fragmentation.SupportActivity;
@@ -17,13 +18,13 @@ import me.yokeyword.fragmentation.SupportActivity;
  * Created by Administrator on 2018/1/19.
  */
 
-public abstract class BaseActivity<P extends design.root.base.BasePresenter, M extends BaseModel, B extends
-        ViewDataBinding> extends
-        SupportActivity {
+public abstract class BaseActivity<P extends design.root.base.BasePresenter, M extends BaseModel,
+        B extends ViewDataBinding> extends SupportActivity {
     public P mPresenter;
     public B mViewBinding;
     private M mModel;
     private long mTime = 0;
+    public static LoadingDialog loadingDialog = new LoadingDialog();
 
     public abstract int getLayoutId();
 
@@ -65,6 +66,14 @@ public abstract class BaseActivity<P extends design.root.base.BasePresenter, M e
             mTime = System.currentTimeMillis();
             super.start(toFragment);
         }
+    }
+
+    public void startLoading() {
+        loadingDialog.show(this);
+    }
+
+    public void closeLoading() {
+        loadingDialog.dismiss();
     }
 
     @Override

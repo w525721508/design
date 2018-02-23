@@ -2,7 +2,9 @@ package design.root.ui.sign;
 
 import com.blankj.utilcode.util.LogUtils;
 
+import design.root.Constant;
 import design.root.api.ApiFactory;
+import design.root.db.DbHelper;
 import design.root.entity.UserEntity;
 import design.root.ui.interfaces.NetCallBack;
 import io.reactivex.functions.Consumer;
@@ -22,21 +24,22 @@ public class LoginModel extends LoginContract.Model {
         user.setAge("15");
         user.setMobile("10086");
         user.setSex("保密");
-//        try {
-            user.toAddData();
-//        } catch (IllegalAccessException e) {
-//            e.printStackTrace();
-//        }
-        ApiFactory.UserApi.superUser(user).subscribe(new Consumer<String>() {
-            @Override
-            public void accept(String s) throws Exception {
-                netCallBack.succ(s);
-            }
-        }, throwable -> {
-            netCallBack.error(throwable.getMessage());
-        });
+        user.toAddData();
+        if (Constant.SYSTEM.NEEDSERVER) {
+            ApiFactory.UserApi.superUser(user).subscribe(new Consumer<String>() {
+                @Override
+                public void accept(String s) throws Exception {
+                    netCallBack.succ(s);
+                }
+            }, throwable -> {
+                netCallBack.error(throwable.getMessage());
+            });
+        } else {
+            DbHelper.getInstance().insertUserEntity(user);
+            netCallBack.succ("");
+        }
 
-//        DbHelper.getInstance().insertUser(user);
+
     }
 
     @Override
@@ -44,37 +47,55 @@ public class LoginModel extends LoginContract.Model {
         UserEntity userEntity = new UserEntity();
         userEntity.setUsername(userName);
         userEntity.setPassword(pwd);
-        ApiFactory.UserApi.login(userEntity).subscribe(new Consumer<UserEntity>() {
-            @Override
-            public void accept(UserEntity userEntity) throws Exception {
+        if (Constant.SYSTEM.NEEDSERVER) {
+            ApiFactory.UserApi.login(userEntity).subscribe(new Consumer<UserEntity>() {
+                @Override
+                public void accept(UserEntity userEntity) throws Exception {
+                    netCallBack.succ(userEntity);
+                    LogUtils.e(userEntity.toString());
+                }
+            }, throwable -> {
+                netCallBack.error(throwable.getMessage());
+            });
+        } else {
+            if (DbHelper.getInstance().queryUserEntityToBoolean(userEntity)) {
                 netCallBack.succ(userEntity);
                 LogUtils.e(userEntity.toString());
+            } else {
+                netCallBack.error("账户密码错误");
             }
-        }, throwable -> {
-            netCallBack.error(throwable.getMessage());
-        });
+        }
+
     }
 
-//    @Override
+    //    @Override
     public void changePwd(String username, String PwdOne, String PwdTwo, NetCallBack netCallBack) {
         UserEntity user = new UserEntity();
         user.setUsername(username);
+        user.setPassword(PwdOne);
+        user.setId(DbHelper.getInstance().queryUserEntityToList(user).get(0).getId());
         user.setPassword(PwdTwo);
         user.setAge("15");
         user.setMobile("10086");
         user.setSex("保密");
-//        try {
-            user.toUpdateData();
-//        } catch (IllegalAccessException e) {
-//            e.printStackTrace();
-//        }
-        ApiFactory.UserApi.superUser(user).subscribe(new Consumer<String>() {
-            @Override
-            public void accept(String s) throws Exception {
-                netCallBack.succ(s);
+        user.toUpdateData();
+
+        if (Constant.SYSTEM.NEEDSERVER) {
+            ApiFactory.UserApi.superUser(user).subscribe(new Consumer<String>() {
+                @Override
+                public void accept(String s) throws Exception {
+                    netCallBack.succ(s);
+                }
+            }, throwable -> {
+                netCallBack.error(throwable.getMessage());
+            });
+        } else {
+            if (DbHelper.getInstance().updateUserEntity(user)) {
+                netCallBack.succ("");
+            } else {
+                netCallBack.error("修改失败");
             }
-        }, throwable -> {
-            netCallBack.error(throwable.getMessage());
-        });
+        }
+
     }
 }
