@@ -5,7 +5,7 @@
 
         <variable
             name="onClickListener"
-            type="com.tzduan.base.util.OnClickListener"></variable>
+            type="design.root.base.util.OnClickListener"></variable>
     </data>
 
     <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -13,7 +13,7 @@
                                                  android:layout_width="match_parent"
                                                  android:layout_height="match_parent">
 
-        <com.tzduan.base.ui.view.TitleView
+        <design.root.base.ui.view.TitleView
             android:id="@+id/ic_title"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
