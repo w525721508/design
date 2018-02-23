@@ -6,10 +6,6 @@ buildscript {
         mavenCentral()
         google()
     }
-    repositories {
-        google()
-        jcenter()
-    }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.0.1'
 
@@ -23,6 +19,9 @@ allprojects {
         google()
         maven { url "https://jitpack.io" }
         jcenter()
+        maven{
+            url NEXUS_REPOSITORY_URL
+        }
     }
 }
 
