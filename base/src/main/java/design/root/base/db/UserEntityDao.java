@@ -9,8 +9,6 @@ import java.util.List;
 
 import design.root.base.entity.UserEntity;
 
-import design.root.base.entity.UserEntity;
-
 /**
  * Created by Administrator on 2018/1/25.
  */

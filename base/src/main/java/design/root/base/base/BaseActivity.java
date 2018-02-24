@@ -37,9 +37,11 @@ public abstract class BaseActivity<P extends BasePresenter, M extends BaseModel,
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        View rootView = getLayoutInflater().inflate(getLayoutId(), null, false);
-        mViewBinding = DataBindingUtil.bind(rootView);
-        super.setContentView(rootView);
+        if (getLayoutId() != 0){
+            View rootView = getLayoutInflater().inflate(getLayoutId(), null, false);
+            mViewBinding = DataBindingUtil.bind(rootView);
+            super.setContentView(rootView);
+        }
         initPresenter();
         initView();
     }

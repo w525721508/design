@@ -34,21 +34,14 @@ public class LoginPresenter extends LoginContract.Presenter {
         if (mModel.isNull(userName, PwdOne, pwdTwo)) {
             mView.showToast("注册数据不能为空");
         } else {
-//            LoadingFragment fragment = LoadingFragment.newInstants("loading", true, true, true);
-//            FragmentHelper.addDialogFragment(signFragment.getFragmentManager(), fragment,
-//                    LoadingFragment.TAG);
             mModel.register(userName, PwdOne, new NetCallBack<String>() {
                 @Override
                 public void succ(String userEntity) {
-//                    FragmentHelper.removeFragment(signFragment.getFragmentManager(),
-//                            LoadingFragment.TAG);
                     mView.registerSucc("注册成功");
                 }
 
                 @Override
                 public void error(String str) {
-//                    FragmentHelper.removeFragment(signFragment.getFragmentManager(),
-//                            LoadingFragment.TAG);
                     mView.error(str);
                 }
             });
@@ -59,23 +52,16 @@ public class LoginPresenter extends LoginContract.Presenter {
 
     @Override
     public void sign(String userName, String pwd) {
-//        LoadingFragment fragment = LoadingFragment.newInstants("loading", true, true, true);
-//        FragmentHelper.addDialogFragment(signFragment.getFragmentManager(), fragment,
-// LoadingFragment.TAG);
         mModel.sign(userName, pwd, new NetCallBack<UserEntity>() {
             @Override
             public void succ(UserEntity userEntity) {
                 Global.userEntity = userEntity;
                 mView.signSucc();
-//                FragmentHelper.removeFragment(signFragment.getFragmentManager(),
-// LoadingFragment.TAG);
             }
 
             @Override
             public void error(String str) {
                 mView.error("账户密码错误");
-//                FragmentHelper.removeFragment(signFragment.getFragmentManager(),
-// LoadingFragment.TAG);
             }
         });
     }

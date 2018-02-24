@@ -6,8 +6,6 @@ import android.arch.persistence.room.Ignore;
 import java.lang.reflect.Field;
 import java.util.HashMap;
 
-import design.root.base.entity.UserEntity;
-
 
 /**
  * @author fish.leong@msn.com

@@ -6,7 +6,6 @@ import java.util.concurrent.TimeUnit;
 
 import design.root.base.Constant;
 
-import design.root.base.Constant;
 import io.reactivex.Observable;
 import io.reactivex.ObservableSource;
 import io.reactivex.functions.Function;

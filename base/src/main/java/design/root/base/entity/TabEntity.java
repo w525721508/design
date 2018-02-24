@@ -5,8 +5,6 @@ import com.flyco.tablayout.listener.CustomTabEntity;
 import design.root.base.App;
 import design.root.base.base.BaseEntity;
 
-import design.root.base.App;
-
 
 public class TabEntity extends BaseEntity implements CustomTabEntity {
     public String title;

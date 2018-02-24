@@ -1,8 +1,4 @@
-package design.root.base.ui.main;
-
-import design.root.base.base.BaseModel;
-import design.root.base.base.BasePresenter;
-import design.root.base.base.BaseView;
+package design.custom.ui.main;
 
 import design.root.base.base.BaseModel;
 import design.root.base.base.BasePresenter;

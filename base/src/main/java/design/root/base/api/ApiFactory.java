@@ -4,7 +4,6 @@ package design.root.base.api;
 import design.root.base.entity.HttpMessage;
 import design.root.base.entity.UserEntity;
 
-import design.root.base.entity.UserEntity;
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;

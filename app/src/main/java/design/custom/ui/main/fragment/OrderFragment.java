@@ -1,12 +1,10 @@
-package design.root.base.ui.main.fragment;
+package design.custom.ui.main.fragment;
 
 
 import design.root.base.R;
 import design.root.base.base.BaseFragment;
 import design.root.base.databinding.FragmentOrderBinding;
-import design.root.base.ui.main.MainPresenter;
-
-import design.root.base.base.BaseFragment;
+import design.custom.ui.main.MainPresenter;
 
 /**
  * Created by Administrator on 2018/1/26.

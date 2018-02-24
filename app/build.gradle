@@ -24,5 +24,5 @@ apply from: "${rootProject.projectDir}/gradle/gbf/dependencies.gradle"
 
 dependencies{
 //    implementation project(':base')
-    compile 'design.root.base:design:0.2.3'
+    compile 'design.root.base:design:0.2.8'
 }

@@ -6,13 +6,14 @@ import com.blankj.utilcode.util.ToastUtils;
 import design.root.base.R;
 import design.root.base.base.BaseActivity;
 import design.root.base.databinding.ActivityLoginBinding;
-import design.root.base.ui.main.MainActivity;
-
 import design.root.ui.sign.LoginModel;
 import design.root.ui.sign.LoginPresenter;
 
+
 public class LoginActivity extends BaseActivity<LoginPresenter, LoginModel, ActivityLoginBinding>
         implements LoginContract.View {
+
+    private Class startClass;
 
     @Override
     public int getLayoutId() {
@@ -44,7 +45,15 @@ public class LoginActivity extends BaseActivity<LoginPresenter, LoginModel, Acti
     @Override
     public void signSucc() {
         closeLoading();
-        ActivityUtils.startActivity(MainActivity.class);
+        Class startActivity = null;
+        try {
+            startActivity = Class.forName("design.custom.ui.main.MainActivity");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        if (startActivity != null){
+            ActivityUtils.startActivity(startActivity);
+        }
         ActivityUtils.finishActivity(LoginActivity.class);
     }
 

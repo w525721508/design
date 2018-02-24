@@ -1,4 +1,4 @@
-package design.root.base.ui.main;
+package design.custom.ui.main;
 
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -18,18 +18,13 @@ import design.root.base.base.BaseFragment;
 import design.root.base.databinding.ActivityMainBinding;
 import design.root.base.entity.TabEntity;
 import design.root.base.ui.main.adapter.FragmentViewAdapter;
-import design.root.base.ui.main.fragment.IndexFragment;
-import design.root.base.ui.main.fragment.MyFragment;
-import design.root.base.ui.main.fragment.OrderFragment;
+import design.custom.ui.main.fragment.IndexFragment;
+import design.custom.ui.main.fragment.MyFragment;
+import design.custom.ui.main.fragment.OrderFragment;
 
-import design.root.base.base.BaseActivity;
-import design.root.base.base.BaseFragment;
-import design.root.base.entity.TabEntity;
-import design.root.base.ui.main.fragment.IndexFragment;
 
 public class MainActivity extends BaseActivity<MainPresenter, MainModel, ActivityMainBinding>
-        implements NavigationView.OnNavigationItemSelectedListener, design.root.base.ui.main
-        .MainContract.View {
+        implements NavigationView.OnNavigationItemSelectedListener, MainContract.View {
     private FragmentViewAdapter fragmentViewAdapter;
     private int[] titleInts = {R.string.menu_index, R.string.menu_order, R.string.menu_myself};
     private int[] unSelectIconList = {R.mipmap.icon_menu_cashier_0, R.mipmap.icon_menu_service_0, R

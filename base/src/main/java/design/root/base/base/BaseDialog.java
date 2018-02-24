@@ -28,7 +28,6 @@ import java.util.concurrent.TimeUnit;
 import design.root.base.Constant;
 import design.root.base.R;
 
-import design.root.base.Constant;
 import design.root.base.databinding.DialogBaseBinding;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;

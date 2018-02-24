@@ -1,9 +1,8 @@
-package design.root.base.ui.main.fragment;
+package design.custom.ui.main.fragment;
 
 
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
-import android.view.View;
 
 import com.blankj.utilcode.util.LogUtils;
 import com.chad.library.adapter.base.BaseQuickAdapter;
@@ -16,11 +15,7 @@ import design.root.base.base.BaseActivity;
 import design.root.base.base.BaseFragment;
 import design.root.base.databinding.FragmentIndexBinding;
 import design.root.base.ui.dialog.LoadingDialog;
-import design.root.base.ui.main.MainPresenter;
-import design.root.base.ui.main.adapter.IndexFragmentAdapter;
-
-import design.root.base.base.BaseFragment;
-import design.root.base.ui.dialog.LoadingDialog;
+import design.custom.ui.main.MainPresenter;
 import design.root.base.ui.main.adapter.IndexFragmentAdapter;
 
 /**
@@ -55,10 +50,7 @@ public class IndexFragment extends BaseFragment<MainPresenter,
         indexFragmentAdapter.setOnLoadMoreListener(this::loadMore, mViewBinding.rlTest);
         indexFragmentAdapter.openLoadAnimation(BaseQuickAdapter.SCALEIN);
         indexFragmentAdapter.isFirstOnly(false);
-        indexFragmentAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-            }
+        indexFragmentAdapter.setOnItemClickListener((adapter, view, position) -> {
         });
     }
 
@@ -76,15 +68,12 @@ public class IndexFragment extends BaseFragment<MainPresenter,
      */
     private void loadMore() {
         loadingDialog.show((BaseActivity) getActivity());
-        mViewBinding.rlTest.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                mViewBinding.srl.setRefreshing(false);
-                indexFragmentAdapter.addData("789");
-                indexFragmentAdapter.loadMoreComplete();
-                LogUtils.e("加载更多");
-                loadingDialog.dismiss();
-            }
+        mViewBinding.rlTest.postDelayed(() -> {
+            mViewBinding.srl.setRefreshing(false);
+            indexFragmentAdapter.addData("789");
+            indexFragmentAdapter.loadMoreComplete();
+            LogUtils.e("加载更多");
+            loadingDialog.dismiss();
         }, 2000);
 
 

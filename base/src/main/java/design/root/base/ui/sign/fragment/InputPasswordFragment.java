@@ -9,7 +9,6 @@ import android.widget.EditText;
 
 import design.root.base.R;
 import design.root.base.databinding.FragmentInputPasswordBinding;
-
 import design.root.base.base.BaseFragment;
 import design.root.ui.sign.LoginPresenter;
 
