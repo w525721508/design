@@ -8,12 +8,10 @@ import android.view.View;
 import android.widget.EditText;
 
 import design.root.base.R;
-import design.root.base.base.BaseFragment;
 import design.root.base.databinding.FragmentInputPasswordBinding;
-import design.root.base.ui.sign.LoginPresenter;
-import design.root.base.util.OnClickListener;
 
 import design.root.base.base.BaseFragment;
+import design.root.ui.sign.LoginPresenter;
 
 /**
  */

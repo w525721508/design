@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import design.root.base.R;
 
+
 /**
  * Created by tzduan on 18/2/1.
  */

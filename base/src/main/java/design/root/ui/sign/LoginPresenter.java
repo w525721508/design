@@ -1,12 +1,13 @@
 package design.root.ui.sign;
 
 
-import design.root.entity.UserEntity;
-import design.root.ui.interfaces.NetCallBack;
-import design.root.ui.sign.fragment.InputPasswordFragment;
-import design.root.ui.sign.fragment.RegisteredFragment;
-import design.root.ui.sign.fragment.SignFragment;
-import design.root.util.Global;
+import design.root.base.entity.UserEntity;
+import design.root.base.ui.interfaces.NetCallBack;
+import design.root.base.ui.sign.LoginContract;
+import design.root.base.ui.sign.fragment.InputPasswordFragment;
+import design.root.base.ui.sign.fragment.RegisteredFragment;
+import design.root.base.ui.sign.fragment.SignFragment;
+import design.root.base.util.Global;
 
 /**
  * Created by Administrator on 2018/1/22.

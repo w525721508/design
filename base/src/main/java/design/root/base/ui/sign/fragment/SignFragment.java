@@ -7,10 +7,9 @@ import android.widget.EditText;
 
 
 import design.root.base.R;
-
 import design.root.base.base.BaseFragment;
 import design.root.base.databinding.FragmentSignBinding;
-import design.root.base.ui.sign.LoginPresenter;
+import design.root.ui.sign.LoginPresenter;
 
 
 /**
