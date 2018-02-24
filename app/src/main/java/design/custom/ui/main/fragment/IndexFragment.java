@@ -13,10 +13,10 @@ import java.util.List;
 import design.root.base.R;
 import design.root.base.base.BaseActivity;
 import design.root.base.base.BaseFragment;
-import design.root.base.databinding.FragmentIndexBinding;
 import design.root.base.ui.dialog.LoadingDialog;
 import design.custom.ui.main.MainPresenter;
 import design.custom.ui.main.adapter.IndexFragmentAdapter;
+import design.root.databinding.FragmentIndexBinding;
 
 /**
  * Created by Administrator on 2018/1/26.
