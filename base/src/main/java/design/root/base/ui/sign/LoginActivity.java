@@ -6,8 +6,6 @@ import com.blankj.utilcode.util.ToastUtils;
 import design.root.base.R;
 import design.root.base.base.BaseActivity;
 import design.root.base.databinding.ActivityLoginBinding;
-import design.root.ui.sign.LoginModel;
-import design.root.ui.sign.LoginPresenter;
 
 
 public class LoginActivity extends BaseActivity<LoginPresenter, LoginModel, ActivityLoginBinding>

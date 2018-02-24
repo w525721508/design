@@ -1,4 +1,4 @@
-package design.root.base.ui.main.adapter;
+package design.custom.ui.main.adapter;
 
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;

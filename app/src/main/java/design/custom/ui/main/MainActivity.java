@@ -12,12 +12,12 @@ import com.flyco.tablayout.listener.OnTabSelectListener;
 import java.util.ArrayList;
 import java.util.List;
 
+import design.custom.ui.main.adapter.FragmentViewAdapter;
 import design.root.base.R;
 import design.root.base.base.BaseActivity;
 import design.root.base.base.BaseFragment;
 import design.root.base.databinding.ActivityMainBinding;
 import design.root.base.entity.TabEntity;
-import design.root.base.ui.main.adapter.FragmentViewAdapter;
 import design.custom.ui.main.fragment.IndexFragment;
 import design.custom.ui.main.fragment.MyFragment;
 import design.custom.ui.main.fragment.OrderFragment;

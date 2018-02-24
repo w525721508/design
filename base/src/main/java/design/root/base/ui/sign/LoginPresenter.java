@@ -1,4 +1,4 @@
-package design.root.ui.sign;
+package design.root.base.ui.sign;
 
 
 import design.root.base.entity.UserEntity;

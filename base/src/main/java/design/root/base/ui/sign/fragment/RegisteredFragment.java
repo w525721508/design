@@ -6,7 +6,7 @@ import design.root.base.R;
 import design.root.base.databinding.FragmentRegisteredBinding;
 
 import design.root.base.base.BaseFragment;
-import design.root.ui.sign.LoginPresenter;
+import design.root.base.ui.sign.LoginPresenter;
 
 
 /**
