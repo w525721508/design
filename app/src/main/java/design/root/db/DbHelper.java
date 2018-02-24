@@ -39,13 +39,14 @@ public class DbHelper {
         db.endTransaction();
     }
 
-    public boolean queryUserEntityToBoolean(UserEntity userEntity) {
-        return queryUserEntityToList(userEntity).size() > 0;
+    public List<UserEntity> queryUserNameToList(UserEntity userEntity) {
+        db = getAppDatabaseInstance();
+        return db.userEntityDao().checkUserName(userEntity.getUsername());
     }
 
-    public List<UserEntity> queryUserEntityToList(UserEntity userEntity) {
+    public List<UserEntity> queryUserNamePwdToList(UserEntity userEntity) {
         db = getAppDatabaseInstance();
-        return db.userEntityDao().checkUserName(userEntity.getUsername(), userEntity.getPassword
+        return db.userEntityDao().checkUserNamePwd(userEntity.getUsername(), userEntity.getPassword
                 ());
     }
 

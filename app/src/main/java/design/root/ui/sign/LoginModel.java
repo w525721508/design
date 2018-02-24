@@ -2,11 +2,14 @@ package design.root.ui.sign;
 
 import com.blankj.utilcode.util.LogUtils;
 
+import java.util.List;
+
 import design.root.Constant;
 import design.root.api.ApiFactory;
 import design.root.db.DbHelper;
 import design.root.entity.UserEntity;
 import design.root.ui.interfaces.NetCallBack;
+import design.root.util.Global;
 import io.reactivex.functions.Consumer;
 
 /**
@@ -35,8 +38,13 @@ public class LoginModel extends LoginContract.Model {
                 netCallBack.error(throwable.getMessage());
             });
         } else {
-            DbHelper.getInstance().insertUserEntity(user);
-            netCallBack.succ("");
+            if (DbHelper.getInstance().queryUserNameToList(user).size() > 0) {
+                netCallBack.error("注册失败，该账户已存在");
+            } else {
+                DbHelper.getInstance().insertUserEntity(user);
+                netCallBack.succ("");
+            }
+
         }
 
 
@@ -58,8 +66,10 @@ public class LoginModel extends LoginContract.Model {
                 netCallBack.error(throwable.getMessage());
             });
         } else {
-            if (DbHelper.getInstance().queryUserEntityToBoolean(userEntity)) {
-                netCallBack.succ(userEntity);
+            List<UserEntity> userEntities = DbHelper.getInstance().queryUserNamePwdToList
+                    (userEntity);
+            if (userEntities.size() > 0) {
+                netCallBack.succ(userEntities.get(0));
                 LogUtils.e(userEntity.toString());
             } else {
                 netCallBack.error("账户密码错误");
@@ -72,8 +82,7 @@ public class LoginModel extends LoginContract.Model {
     public void changePwd(String username, String PwdOne, String PwdTwo, NetCallBack netCallBack) {
         UserEntity user = new UserEntity();
         user.setUsername(username);
-        user.setPassword(PwdOne);
-        user.setId(DbHelper.getInstance().queryUserEntityToList(user).get(0).getId());
+        user.setId(DbHelper.getInstance().queryUserNameToList(user).get(0).getId());
         user.setPassword(PwdTwo);
         user.setAge("15");
         user.setMobile("10086");

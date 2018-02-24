@@ -3,11 +3,10 @@ package design.root.ui.sign;
 
 import design.root.entity.UserEntity;
 import design.root.ui.interfaces.NetCallBack;
-import design.root.ui.main.fragment.LoadingFragment;
 import design.root.ui.sign.fragment.InputPasswordFragment;
 import design.root.ui.sign.fragment.RegisteredFragment;
 import design.root.ui.sign.fragment.SignFragment;
-import design.root.util.FragmentHelper;
+import design.root.util.Global;
 
 /**
  * Created by Administrator on 2018/1/22.
@@ -65,6 +64,7 @@ public class LoginPresenter extends LoginContract.Presenter {
         mModel.sign(userName, pwd, new NetCallBack<UserEntity>() {
             @Override
             public void succ(UserEntity userEntity) {
+                Global.userEntity = userEntity;
                 mView.signSucc();
 //                FragmentHelper.removeFragment(signFragment.getFragmentManager(),
 // LoadingFragment.TAG);
