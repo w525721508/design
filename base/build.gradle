@@ -1,9 +1,6 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 
 android {
-    defaultConfig {
-        applicationId "design.root"
-    }
     sourceSets {
         main {
             res.srcDirs = [
@@ -18,11 +15,10 @@ android {
     }
 }
 
+
 apply from: "${rootProject.projectDir}/gradle/gbf/android.gradle"
 
 apply from: "${rootProject.projectDir}/gradle/gbf/dependencies.gradle"
 
-dependencies{
-//    implementation project(':base')
-    compile 'design.root.base:design:0.2.3'
-}
+apply from: "${rootProject.projectDir}/gradle/gbf/nexus_upload.gradle"
+
