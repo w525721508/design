@@ -13,14 +13,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import design.custom.ui.main.adapter.FragmentViewAdapter;
-import design.root.base.R;
+import design.custom.R;
 import design.root.base.base.BaseActivity;
 import design.root.base.base.BaseFragment;
 import design.root.base.entity.TabEntity;
 import design.custom.ui.main.fragment.IndexFragment;
 import design.custom.ui.main.fragment.MyFragment;
 import design.custom.ui.main.fragment.OrderFragment;
-import design.root.databinding.ActivityMainBinding;
+import design.custom.databinding.ActivityMainBinding;
 
 
 public class MainActivity extends BaseActivity<MainPresenter, MainModel, ActivityMainBinding>
