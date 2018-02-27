@@ -1,14 +1,17 @@
 package design.root.base.base;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatDelegate;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 
 import com.blankj.utilcode.util.ActivityUtils;
 import com.blankj.utilcode.util.KeyboardUtils;
@@ -67,5 +70,26 @@ public abstract class BaseFragment<P extends BasePresenter, B extends
 
     public CharSequence getTabTitle() {
         return null;
+    }
+
+    public void setView(EditText view, int select, int unSelect) {
+        view.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean b) {
+                switchIcon(view, b, select, unSelect);
+            }
+        });
+    }
+
+    public void switchIcon(EditText view, Boolean b, int iconIdOne, int iconTwo) {
+        Resources res = getResources();
+        Drawable img_off;
+        if (b) {
+            img_off = res.getDrawable(iconIdOne);
+        } else {
+            img_off = res.getDrawable(iconTwo);
+        }
+        img_off.setBounds(0, 0, img_off.getMinimumWidth(), img_off.getMinimumHeight());
+        view.setCompoundDrawables(img_off, null, null, null);
     }
 }

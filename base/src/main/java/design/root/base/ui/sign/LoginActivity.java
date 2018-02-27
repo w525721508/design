@@ -10,7 +10,19 @@ import design.root.base.databinding.ActivityLoginBinding;
 
 public class LoginActivity extends BaseActivity<LoginPresenter, LoginModel, ActivityLoginBinding>
         implements LoginContract.View {
-
+    //当前主题
+    public int nowTheme = 0;
+    public int signResSelected[][] = new int[][]{{R.mipmap.login_username2, R.mipmap.login_pwd02}};
+    public int SignResUnSelected[][] = new int[][]{{R.mipmap.login_username1, R.mipmap
+            .login_pwd01}};
+    public int registeredResSelected[][] = new int[][]{{R.mipmap.login_username2, R.mipmap
+            .login_pwd02, R.mipmap.login_cipher_04}};
+    public int RegisteredResUnSelected[][] = new int[][]{{R.mipmap.login_username1, R.mipmap
+            .login_pwd01, R.mipmap.login_cipher_03}};
+    public int inputPasswordResSelected[][] = new int[][]{{R.mipmap.login_username2, R.mipmap
+            .login_pwd02, R.mipmap.login_cipher_04}};
+    public int inputPasswordResUnSelected[][] = new int[][]{{R.mipmap.login_username1, R.mipmap
+            .login_pwd01, R.mipmap.login_cipher_03}};
     private Class startClass;
 
     @Override
@@ -49,7 +61,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter, LoginModel, Acti
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-        if (startActivity != null){
+        if (startActivity != null) {
             ActivityUtils.startActivity(startActivity);
         }
         ActivityUtils.finishActivity(LoginActivity.class);

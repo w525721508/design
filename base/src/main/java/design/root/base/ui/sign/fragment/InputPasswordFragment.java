@@ -1,15 +1,11 @@
 package design.root.base.ui.sign.fragment;
 
-import android.content.res.Resources;
-import android.graphics.drawable.Drawable;
 import android.text.InputFilter;
 import android.text.InputType;
-import android.view.View;
-import android.widget.EditText;
 
 import design.root.base.R;
-import design.root.base.databinding.FragmentInputPasswordBinding;
 import design.root.base.base.BaseFragment;
+import design.root.base.databinding.FragmentInputPasswordBinding;
 import design.root.base.ui.sign.LoginPresenter;
 
 /**
@@ -48,39 +44,12 @@ public class InputPasswordFragment extends BaseFragment<LoginPresenter,
 
             }
         });
-        mViewBinding.etPhone.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View view, boolean b) {
-                switchIcon(mViewBinding.etPhone, b, R.mipmap.login_username2, R.mipmap
-                        .login_username1);
-            }
-        });
-        mViewBinding.etOnePassword.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View view, boolean b) {
-                switchIcon(mViewBinding.etOnePassword, b, R.mipmap.login_pwd02, R.mipmap
-                        .login_pwd01);
-            }
-        });
-        mViewBinding.etTwoPassword.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View view, boolean b) {
-                switchIcon(mViewBinding.etTwoPassword, b, R.mipmap.pwd_two02, R.mipmap
-                        .pwd_two01);
-            }
-        });
+        setView(mViewBinding.etPhone, R.mipmap.login_username2, R.mipmap
+                .login_username1);
+        setView(mViewBinding.etOnePassword, R.mipmap.login_pwd02, R.mipmap
+                .login_pwd01);
+        setView(mViewBinding.etTwoPassword, R.mipmap.pwd_two02, R.mipmap
+                .pwd_two01);
     }
 
-
-    private void switchIcon(EditText view, Boolean b, int iconIdOne, int iconTwo) {
-        Resources res = getResources();
-        Drawable img_off;
-        if (b) {
-            img_off = res.getDrawable(iconIdOne);
-        } else {
-            img_off = res.getDrawable(iconTwo);
-        }
-        img_off.setBounds(0, 0, img_off.getMinimumWidth(), img_off.getMinimumHeight());
-        view.setCompoundDrawables(img_off, null, null, null);
-    }
 }

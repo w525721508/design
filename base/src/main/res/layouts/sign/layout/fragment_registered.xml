@@ -11,9 +11,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white_caocao"
         android:gravity="center"
         android:orientation="vertical"
+        android:background="@color/all_transparent"
         android:padding="@dimen/all_bounced_padding">
 
         <LinearLayout
