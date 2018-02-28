@@ -11,19 +11,19 @@ import design.root.base.databinding.ActivityLoginBinding;
 public class LoginActivity extends BaseActivity<LoginPresenter, LoginModel, ActivityLoginBinding>
         implements LoginContract.View {
     //当前主题
-    public int nowTheme = 0;
-    public int signResSelected[][] = new int[][]{{R.mipmap.login_username2, R.mipmap.login_pwd02}};
-    public int SignResUnSelected[][] = new int[][]{{R.mipmap.login_username1, R.mipmap
-            .login_pwd01}};
-    public int registeredResSelected[][] = new int[][]{{R.mipmap.login_username2, R.mipmap
-            .login_pwd02, R.mipmap.login_cipher_04}};
-    public int RegisteredResUnSelected[][] = new int[][]{{R.mipmap.login_username1, R.mipmap
-            .login_pwd01, R.mipmap.login_cipher_03}};
-    public int inputPasswordResSelected[][] = new int[][]{{R.mipmap.login_username2, R.mipmap
-            .login_pwd02, R.mipmap.login_cipher_04}};
-    public int inputPasswordResUnSelected[][] = new int[][]{{R.mipmap.login_username1, R.mipmap
-            .login_pwd01, R.mipmap.login_cipher_03}};
-    private Class startClass;
+    public static int nowTheme = 1;
+    public static int signResSelected[][] = new int[][]{{R.mipmap.username02, R.mipmap.pwd02}, {R
+            .mipmap.username04, R.mipmap.pwd04}};
+    public static int SignResUnSelected[][] = new int[][]{{R.mipmap.username01, R.mipmap
+            .pwd01}, {R.mipmap.username03, R.mipmap.pwd03}};
+    public static int registeredResSelected[][] = new int[][]{{R.mipmap.username02, R.mipmap
+            .pwd02, R.mipmap.pwds02}, {R.mipmap.username04, R.mipmap.pwd04, R.mipmap.pwds04}};
+    public static int RegisteredResUnSelected[][] = new int[][]{{R.mipmap.username01, R.mipmap
+            .pwd01, R.mipmap.pwds01}, {R.mipmap.username03, R.mipmap.pwd03, R.mipmap.pwds03}};
+    public static int inputPasswordResSelected[][] = new int[][]{{R.mipmap.username02, R.mipmap
+            .pwd02, R.mipmap.pwds02}, {R.mipmap.username04, R.mipmap.pwd04, R.mipmap.pwds04}};
+    public static int inputPasswordResUnSelected[][] = new int[][]{{R.mipmap.username01, R.mipmap
+            .pwd01, R.mipmap.pwds01}, {R.mipmap.username03, R.mipmap.pwd03, R.mipmap.pwds03}};
 
     @Override
     public int getLayoutId() {

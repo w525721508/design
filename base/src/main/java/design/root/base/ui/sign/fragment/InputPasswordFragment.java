@@ -6,6 +6,7 @@ import android.text.InputType;
 import design.root.base.R;
 import design.root.base.base.BaseFragment;
 import design.root.base.databinding.FragmentInputPasswordBinding;
+import design.root.base.ui.sign.LoginActivity;
 import design.root.base.ui.sign.LoginPresenter;
 
 /**
@@ -44,12 +45,12 @@ public class InputPasswordFragment extends BaseFragment<LoginPresenter,
 
             }
         });
-        setView(mViewBinding.etPhone, R.mipmap.login_username2, R.mipmap
-                .login_username1);
-        setView(mViewBinding.etOnePassword, R.mipmap.login_pwd02, R.mipmap
-                .login_pwd01);
-        setView(mViewBinding.etTwoPassword, R.mipmap.pwd_two02, R.mipmap
-                .pwd_two01);
+        setView(mViewBinding.etPhone, LoginActivity.inputPasswordResSelected[LoginActivity
+                .nowTheme][0], LoginActivity.inputPasswordResUnSelected[LoginActivity.nowTheme][0]);
+        setView(mViewBinding.etOnePassword, LoginActivity.inputPasswordResSelected[LoginActivity
+                .nowTheme][1], LoginActivity.inputPasswordResUnSelected[LoginActivity.nowTheme][1]);
+        setView(mViewBinding.etTwoPassword, LoginActivity.inputPasswordResSelected[LoginActivity
+                .nowTheme][2], LoginActivity.inputPasswordResUnSelected[LoginActivity.nowTheme][2]);
     }
 
 }

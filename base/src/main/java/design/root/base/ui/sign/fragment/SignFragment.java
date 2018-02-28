@@ -5,6 +5,7 @@ import android.view.View;
 import design.root.base.R;
 import design.root.base.base.BaseFragment;
 import design.root.base.databinding.FragmentSignBinding;
+import design.root.base.ui.sign.LoginActivity;
 import design.root.base.ui.sign.LoginPresenter;
 
 
@@ -36,10 +37,10 @@ public class SignFragment extends BaseFragment<LoginPresenter, FragmentSignBindi
                 }
             }
         });
-        setView(mViewBinding.etPhone, R.mipmap.login_username2, R.mipmap
-                .login_username1);
-        setView(mViewBinding.etPwd, R.mipmap.login_pwd02, R.mipmap
-                .login_pwd01);
+        setView(mViewBinding.etPhone, LoginActivity.signResSelected[LoginActivity
+                .nowTheme][0], LoginActivity.SignResUnSelected[LoginActivity.nowTheme][0]);
+        setView(mViewBinding.etPwd, LoginActivity.signResSelected[LoginActivity
+                .nowTheme][1], LoginActivity.SignResUnSelected[LoginActivity.nowTheme][1]);
 
     }
 
