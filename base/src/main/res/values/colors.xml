@@ -44,4 +44,7 @@
     <color name="background_dialog">#99000000</color>
     <!-- 全透明 -->
     <color name="all_transparent">#00000000</color>
+
+    <color name="head_border">#fe7b73</color>
+    <color name="index_back">#f5f5f9</color>
 </resources>

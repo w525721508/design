@@ -38,7 +38,5 @@
             android:textColor="@color/black_baozheng"
             android:textSize="@dimen/all_sub_title_size"/>
 
-
-
     </android.support.constraint.ConstraintLayout>
 </layout>

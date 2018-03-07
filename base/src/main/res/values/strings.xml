@@ -50,10 +50,14 @@
     <string name="login_et_password_hint">请输入密码</string>
     <string name="login_et_password_two_hint">请再次输入密码</string>
     <string name="login_et_username_hint">请输入用户名</string>
+    <string name="login_et_email_hint">请输入邮箱</string>
+    <string name="login_et_address_hint">请输入收货地址</string>
     <string name="login_signinfragmentfragment_btn_login">登录</string>
     <string name="login_registerfragmentfragment_btn_register">注册</string>
     <!--输入密码界面-->
     <string name="login_smscodefragment_et_one_input_password_hint">请输入老密码</string>
     <string name="login_smscodefragment_et_two_input_password_hint">请输入新密码</string>
     <string name="login_smscodefragment_btn_next">下一步</string>
+    <!--货币-->
+    <string name="money_rmb">￥</string>
 </resources>

@@ -6,6 +6,7 @@ import design.root.base.R;
 import design.root.base.base.BaseDialog;
 import design.root.base.base.BasePresenter;
 import design.root.base.databinding.DialogSelectBinding;
+import design.root.base.util.OnClickListener;
 
 
 /**
@@ -14,6 +15,10 @@ import design.root.base.databinding.DialogSelectBinding;
 
 public class SelectDialog extends BaseDialog<BasePresenter, DialogSelectBinding> {
     String strContent;
+    //自定义按钮点击事件
+    private View.OnClickListener customOnClick;
+    //确定按钮点击事件
+    private View.OnClickListener okClick;
 
     @Override
     public int getLayoutId() {
@@ -26,23 +31,29 @@ public class SelectDialog extends BaseDialog<BasePresenter, DialogSelectBinding>
     }
 
     @Override
-    public void onCancelClick(View view) {
-        super.onCancelClick(view);
+    protected boolean isEasy() {
+        return true;
     }
 
-    @Override
-    public void onOkClick(View view) {
-        this.dismiss();
-        super.onOkClick(view);
-    }
-
-    public void setContent(String strContent) {
+    public SelectDialog setContent(String strContent) {
         this.strContent = strContent;
+        return this;
     }
 
     @Override
     public void initView() {
         mViewBinding.tvContent.setText(strContent);
+        setBtn();
     }
 
+    public SelectDialog setClick(OnClickListener okClick, OnClickListener customOnClick) {
+        this.customOnClick = customOnClick;
+        this.okClick = okClick;
+        return this;
+    }
+
+    private void setBtn() {
+        mViewBinding.btnCancel.setOnClickListener(customOnClick);
+        mViewBinding.btnOk.setOnClickListener(okClick);
+    }
 }

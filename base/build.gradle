@@ -6,7 +6,7 @@ android {
             res.srcDirs = [
                     'src/main/res/layouts/dialog',
                     'src/main/res/layouts/main',
-                    'src/main/res/layouts/public',
+                    'src/main/res/layouts/commo',
                     'src/main/res/layouts/sign',
                     'src/main/res/layouts/base',
                     'src/main/res'

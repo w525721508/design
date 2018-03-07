@@ -29,10 +29,11 @@ public class RegisteredFragment extends BaseFragment<LoginPresenter,
                 if (i == R.id.btn_register) {
                     mPresenter.register(mViewBinding.etPhone.getText().toString(),
                             mViewBinding.etPwdOne.getText().toString(), mViewBinding.etPwdTwo
-                                    .getText().toString());
+                                    .getText().toString(), mViewBinding.etEmail.getText()
+                                    .toString());
 
                 } else {
-
+                    pop();
                 }
             }
         });
@@ -42,5 +43,9 @@ public class RegisteredFragment extends BaseFragment<LoginPresenter,
                 .nowTheme][1], LoginActivity.RegisteredResUnSelected[LoginActivity.nowTheme][1]);
         setView(mViewBinding.etPwdTwo, LoginActivity.registeredResSelected[LoginActivity
                 .nowTheme][2], LoginActivity.RegisteredResUnSelected[LoginActivity.nowTheme][2]);
+        setView(mViewBinding.etEmail, LoginActivity.registeredResSelected[LoginActivity
+                .nowTheme][3], LoginActivity.RegisteredResUnSelected[LoginActivity.nowTheme][3]);
+        setView(mViewBinding.etAddress, LoginActivity.registeredResSelected[LoginActivity
+                .nowTheme][4], LoginActivity.RegisteredResUnSelected[LoginActivity.nowTheme][4]);
     }
 }

@@ -3,7 +3,6 @@ package design.root.base.api;
 
 import design.root.base.entity.HttpMessage;
 import design.root.base.entity.UserEntity;
-
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
@@ -21,11 +20,14 @@ public class ApiFactory {
 
     public static class UserApi {
         public static Observable<UserEntity> login(UserEntity userEntity) {
-            return obFactory(Api.getInstance().apiService.login(userEntity));
+            Observable<HttpMessage<UserEntity>> observable = null;
+            observable = Api.getInstance().getApiService()
+                    .login(userEntity);
+            return obFactory(observable);
         }
 
         public static Observable<String> superUser(UserEntity user) {
-            return obFactory(Api.getInstance().apiService.superUser(user));
+            return obFactory(Api.getInstance().getApiService().superUser(user));
         }
     }
 

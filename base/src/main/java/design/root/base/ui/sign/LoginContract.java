@@ -26,7 +26,7 @@ public interface LoginContract {
 
     abstract class Model extends BaseModel {
         //注册数据操作
-        public abstract void register(String userName, String PwdOne, NetCallBack netCallBack);
+        public abstract void register(String userName, String PwdOne,String email, NetCallBack netCallBack);
 
         //登录验证操作
         public abstract void sign(String userName, String Pwd, NetCallBack netCallBack);
@@ -38,7 +38,7 @@ public interface LoginContract {
 
     abstract class Presenter extends BasePresenter<View, Model> {
         //注册
-        public abstract void register(String userName, String PwdOne, String pwdTwo);
+        public abstract void register(String userName, String PwdOne, String pwdTwo,String email);
 
         //登录
         public abstract void sign(String userName, String Pwd);

@@ -7,7 +7,6 @@ import com.blankj.utilcode.util.LogUtils;
 
 import design.root.base.Constant;
 import design.root.base.entity.HttpMessage;
-
 import io.reactivex.functions.Function;
 
 /**

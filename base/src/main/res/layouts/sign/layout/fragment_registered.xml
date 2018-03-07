@@ -19,7 +19,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="2"
+            android:layout_weight="1"
             android:gravity="center|bottom">
 
             <ImageView
@@ -118,6 +118,29 @@
                     android:ems="10"
                     android:hint="@string/login_et_password_two_hint"
                     android:inputType="textPassword"
+                    android:maxLength="16"
+                    android:saveEnabled="true"/>
+                <EditText
+                    android:id="@+id/et_email"
+                    style="@style/editText"
+                    android:layout_marginTop="@dimen/et_margin_edittext"
+                    android:digits="1234567890"
+                    android:drawableLeft="@mipmap/email01"
+                    android:drawablePadding="@dimen/all_padding"
+                    android:ems="10"
+                    android:hint="@string/login_et_email_hint"
+                    android:maxLength="16"
+                    android:saveEnabled="true"/>
+
+                <EditText
+                    android:id="@+id/et_address"
+                    style="@style/editText"
+                    android:layout_marginTop="@dimen/et_margin_edittext"
+                    android:digits="1234567890"
+                    android:drawableLeft="@mipmap/address01"
+                    android:drawablePadding="@dimen/all_padding"
+                    android:ems="10"
+                    android:hint="@string/login_et_address_hint"
                     android:maxLength="16"
                     android:saveEnabled="true"/>
             </LinearLayout>

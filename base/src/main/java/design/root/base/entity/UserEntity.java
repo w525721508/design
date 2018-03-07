@@ -25,7 +25,8 @@ public class UserEntity extends BaseEntity {
     private String sex;
     @ColumnInfo(name = "age")
     private String age;
-
+    @ColumnInfo(name = "email")
+    private String email;
     /**
      * 表名
      */
@@ -44,7 +45,7 @@ public class UserEntity extends BaseEntity {
      * 列
      */
     public enum columns {
-        appid, username, password, mobile, sex, age
+        appid, username, password, mobile, sex, age, email
     }
 
     public long getId() {
@@ -95,6 +96,13 @@ public class UserEntity extends BaseEntity {
         this.age = age;
     }
 
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getEmail() {
+        return email;
+    }
     @Override
     public String toString() {
         return "UserEntity{" +

@@ -8,9 +8,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
-import design.root.base.R;
 
 import java.util.List;
+
+import design.root.base.R;
 
 /**
  * Created by Administrator on 2018/2/7.

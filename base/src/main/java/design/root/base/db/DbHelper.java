@@ -2,7 +2,6 @@ package design.root.base.db;
 
 import android.arch.persistence.room.Room;
 
-
 import java.util.List;
 
 import design.root.base.App;

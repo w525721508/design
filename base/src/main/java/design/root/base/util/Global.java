@@ -9,4 +9,5 @@ import design.root.base.entity.UserEntity;
 
 public class Global {
     public static UserEntity userEntity = new UserEntity();
+    public static String app_id;
 }

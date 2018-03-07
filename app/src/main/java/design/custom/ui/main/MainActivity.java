@@ -12,15 +12,15 @@ import com.flyco.tablayout.listener.OnTabSelectListener;
 import java.util.ArrayList;
 import java.util.List;
 
-import design.custom.ui.main.adapter.FragmentViewAdapter;
 import design.custom.R;
-import design.root.base.base.BaseActivity;
-import design.root.base.base.BaseFragment;
-import design.root.base.entity.TabEntity;
+import design.custom.databinding.ActivityMainBinding;
+import design.custom.ui.main.adapter.FragmentViewAdapter;
 import design.custom.ui.main.fragment.IndexFragment;
 import design.custom.ui.main.fragment.MyFragment;
 import design.custom.ui.main.fragment.OrderFragment;
-import design.custom.databinding.ActivityMainBinding;
+import design.root.base.base.BaseActivity;
+import design.root.base.base.BaseFragment;
+import design.root.base.entity.TabEntity;
 
 
 public class MainActivity extends BaseActivity<MainPresenter, MainModel, ActivityMainBinding>
@@ -68,6 +68,7 @@ public class MainActivity extends BaseActivity<MainPresenter, MainModel, Activit
             @Override
             public void onTabSelect(int position) {
                 mViewBinding.fragmentContainer.setCurrentItem(position);
+
             }
 
             @Override

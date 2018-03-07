@@ -4,18 +4,7 @@ android {
     defaultConfig {
         applicationId "design.custom"
     }
-    sourceSets {
-        main {
-            res.srcDirs = [
-                    'src/main/res/layouts/dialog',
-                    'src/main/res/layouts/main',
-                    'src/main/res/layouts/public',
-                    'src/main/res/layouts/sign',
-                    'src/main/res/layouts/base',
-                    'src/main/res'
-            ]
-        }
-    }
+
 }
 
 apply from: "${rootProject.projectDir}/gradle/gbf/android.gradle"

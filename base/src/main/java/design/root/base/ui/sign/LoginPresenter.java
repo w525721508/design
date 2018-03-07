@@ -3,7 +3,6 @@ package design.root.base.ui.sign;
 
 import design.root.base.entity.UserEntity;
 import design.root.base.ui.interfaces.NetCallBack;
-import design.root.base.ui.sign.LoginContract;
 import design.root.base.ui.sign.fragment.InputPasswordFragment;
 import design.root.base.ui.sign.fragment.RegisteredFragment;
 import design.root.base.ui.sign.fragment.SignFragment;
@@ -30,11 +29,11 @@ public class LoginPresenter extends LoginContract.Presenter {
     }
 
     @Override
-    public void register(String userName, String PwdOne, String pwdTwo) {
-        if (mModel.isNull(userName, PwdOne, pwdTwo)) {
+    public void register(String userName, String PwdOne, String pwdTwo,String email) {
+        if (mModel.isNull(userName, PwdOne, pwdTwo,email)) {
             mView.showToast("注册数据不能为空");
         } else {
-            mModel.register(userName, PwdOne, new NetCallBack<String>() {
+            mModel.register(userName, PwdOne, email,new NetCallBack<String>() {
                 @Override
                 public void succ(String userEntity) {
                     mView.registerSucc("注册成功");

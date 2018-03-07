@@ -17,9 +17,14 @@ public class LoginActivity extends BaseActivity<LoginPresenter, LoginModel, Acti
     public static int SignResUnSelected[][] = new int[][]{{R.mipmap.username01, R.mipmap
             .pwd01}, {R.mipmap.username03, R.mipmap.pwd03}};
     public static int registeredResSelected[][] = new int[][]{{R.mipmap.username02, R.mipmap
-            .pwd02, R.mipmap.pwds02}, {R.mipmap.username04, R.mipmap.pwd04, R.mipmap.pwds04}};
+            .pwd02, R.mipmap.pwds02, R.mipmap.email02, R.mipmap.address02}, {R.mipmap.username04,
+            R.mipmap.pwd04, R.mipmap.pwds04, R.mipmap.email04, R.mipmap.address04}};
+
     public static int RegisteredResUnSelected[][] = new int[][]{{R.mipmap.username01, R.mipmap
-            .pwd01, R.mipmap.pwds01}, {R.mipmap.username03, R.mipmap.pwd03, R.mipmap.pwds03}};
+            .pwd01, R.mipmap.pwds01, R.mipmap.email01, R.mipmap.address01}, {R.mipmap.username03,
+            R.mipmap.pwd03, R.mipmap.pwds03, R.mipmap.email03, R.mipmap.address03}};
+
+
     public static int inputPasswordResSelected[][] = new int[][]{{R.mipmap.username02, R.mipmap
             .pwd02, R.mipmap.pwds02}, {R.mipmap.username04, R.mipmap.pwd04, R.mipmap.pwds04}};
     public static int inputPasswordResUnSelected[][] = new int[][]{{R.mipmap.username01, R.mipmap

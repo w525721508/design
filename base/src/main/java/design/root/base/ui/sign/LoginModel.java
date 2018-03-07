@@ -9,7 +9,6 @@ import design.root.base.api.ApiFactory;
 import design.root.base.db.DbHelper;
 import design.root.base.entity.UserEntity;
 import design.root.base.ui.interfaces.NetCallBack;
-import design.root.base.ui.sign.LoginContract;
 import io.reactivex.functions.Consumer;
 
 /**
@@ -20,12 +19,13 @@ public class LoginModel extends LoginContract.Model {
 
 
     @Override
-    public void register(String userName, String PwdOne, NetCallBack netCallBack) {
+    public void register(String userName, String PwdOne, String email, NetCallBack netCallBack) {
         UserEntity user = new UserEntity();
         user.setUsername(userName);
         user.setPassword(PwdOne);
         user.setAge("15");
         user.setMobile("10086");
+        user.setEmail(email);
         user.setSex("保密");
         user.toAddData();
         if (Constant.SYSTEM.NEEDSERVER) {
@@ -82,7 +82,6 @@ public class LoginModel extends LoginContract.Model {
     public void changePwd(String username, String PwdOne, String PwdTwo, NetCallBack netCallBack) {
         UserEntity user = new UserEntity();
         user.setUsername(username);
-        user.setId(DbHelper.getInstance().queryUserNameToList(user).get(0).getId());
         user.setPassword(PwdTwo);
         user.setAge("15");
         user.setMobile("10086");
@@ -99,6 +98,7 @@ public class LoginModel extends LoginContract.Model {
                 netCallBack.error(throwable.getMessage());
             });
         } else {
+            user.setId(DbHelper.getInstance().queryUserNameToList(user).get(0).getId());
             if (DbHelper.getInstance().updateUserEntity(user)) {
                 netCallBack.succ("");
             } else {
