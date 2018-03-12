@@ -8,7 +8,7 @@ public class NewApiFactory extends ApiFactory {
         /**
          * 根据种类查询商品
          */
-        public static Observable<design.custom.ui.main.entity.Test> query_goods(String find) {
+        public static Observable<design.custom.ui.entity.Test> query_goods(String find) {
             return obFactory(NewApi.getInstance().getApiService().query_goods(find));
         }
     }

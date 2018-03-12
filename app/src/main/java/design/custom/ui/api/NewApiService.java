@@ -1,6 +1,6 @@
 package design.custom.ui.api;
 
-import design.custom.ui.main.entity.Test;
+import design.custom.ui.entity.Test;
 import design.root.base.entity.HttpMessage;
 import io.reactivex.Observable;
 import retrofit2.http.GET;

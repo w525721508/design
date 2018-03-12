@@ -4,7 +4,7 @@ import android.support.annotation.Nullable;
 
 import java.util.List;
 
-import design.custom.ui.main.entity.DataEntity;
+import design.custom.ui.entity.DataEntity;
 import design.root.base.base.BaseAdapter;
 import design.root.base.databinding.FragmentDataItemBinding;
 

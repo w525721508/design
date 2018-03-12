@@ -1,4 +1,4 @@
-package design.custom.ui.main.entity;
+package design.custom.ui.entity;
 
 import design.root.base.base.BaseEntity;
 

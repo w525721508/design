@@ -14,7 +14,7 @@ import design.custom.databinding.FragmentDataBinding;
 import design.custom.ui.admin.adapter.DataFragmentAdapter;
 import design.custom.ui.admin.dialog.NewDataDialog;
 import design.custom.ui.main.MainPresenter;
-import design.custom.ui.main.entity.DataEntity;
+import design.custom.ui.entity.DataEntity;
 import design.root.base.base.BaseActivity;
 import design.root.base.base.BaseFragment;
 import design.root.base.ui.dialog.SelectDialog;
