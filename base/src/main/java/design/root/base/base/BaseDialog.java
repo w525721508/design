@@ -1,5 +1,6 @@
 package design.root.base.base;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.databinding.DataBindingUtil;
@@ -49,6 +50,7 @@ public abstract class BaseDialog<P extends BasePresenter, B extends
     private Disposable mDisp;
     private long recLen = -1;
     private boolean shutDown = false;
+    private String okStr, cancelStr;
 
     static {
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
@@ -89,9 +91,12 @@ public abstract class BaseDialog<P extends BasePresenter, B extends
         }
         mBaseBinding.btnCancel.setOnClickListener(this::onCancelClick);
         mBaseBinding.btnOk.setOnClickListener(this::onOkClick);
+        mBaseBinding.btnCancel.setText(cancelStr);
+        mBaseBinding.btnOk.setText(okStr);
         initView();
         return mBaseBinding.getRoot();
     }
+
     /**
      * 获取一个简单的Dialog
      *
@@ -104,6 +109,7 @@ public abstract class BaseDialog<P extends BasePresenter, B extends
         this.initView();
         return mViewBinding.getRoot();
     }
+
     /**
      * 取消键被点击
      */
@@ -258,8 +264,8 @@ public abstract class BaseDialog<P extends BasePresenter, B extends
     }
 
     public BaseDialog setBtnName(String okStr, String cancelStr) {
-        mBaseBinding.btnCancel.setText(cancelStr);
-        mBaseBinding.btnOk.setText(okStr);
+        this.okStr = okStr;
+        this.cancelStr = cancelStr;
         return this;
     }
 }

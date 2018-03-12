@@ -124,10 +124,8 @@
                     android:id="@+id/et_email"
                     style="@style/editText"
                     android:layout_marginTop="@dimen/et_margin_edittext"
-                    android:digits="1234567890"
                     android:drawableLeft="@mipmap/email01"
                     android:drawablePadding="@dimen/all_padding"
-                    android:ems="10"
                     android:hint="@string/login_et_email_hint"
                     android:maxLength="16"
                     android:saveEnabled="true"/>
