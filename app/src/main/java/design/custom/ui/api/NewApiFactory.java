@@ -1,4 +1,4 @@
-package design.custom.ui.main.api;
+package design.custom.ui.api;
 
 import design.root.base.api.ApiFactory;
 import io.reactivex.Observable;

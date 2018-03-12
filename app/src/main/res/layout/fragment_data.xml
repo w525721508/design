@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="onClickListener"
+            type="android.view.View.OnClickListener"/>
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white_caocao">
+
+        <include
+            android:id="@+id/ic"
+            layout="@layout/title"
+            android:background="@drawable/up_down_line_gray"></include>
+
+        <RelativeLayout
+            android:id="@+id/rl_main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/ic">
+
+            <Button
+                android:id="@+id/btn_new"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="@dimen/all_padding"
+                android:layout_marginLeft="@dimen/all_padding"
+                android:layout_marginRight="@dimen/all_padding"
+                android:drawableRight="@mipmap/news"
+                android:onClick="@{onClickListener}"
+                android:text="新增"/>
+
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rl_movies"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+
+</layout>

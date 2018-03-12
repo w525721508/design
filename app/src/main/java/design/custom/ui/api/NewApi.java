@@ -1,6 +1,5 @@
-package design.custom.ui.main.api;
+package design.custom.ui.api;
 
-import design.root.base.api.ApiService;
 import design.root.base.base.BaseApi;
 
 public class NewApi extends BaseApi<NewApiService> {

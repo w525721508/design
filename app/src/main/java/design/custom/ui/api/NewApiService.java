@@ -1,4 +1,4 @@
-package design.custom.ui.main.api;
+package design.custom.ui.api;
 
 import design.custom.ui.main.entity.Test;
 import design.root.base.entity.HttpMessage;

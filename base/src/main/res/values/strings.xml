@@ -4,6 +4,10 @@
     <string name="menu_order">订单</string>
     <string name="menu_myself">我的</string>
 
+    <!--管理员菜单-->
+    <string name="menu_updata">影片</string>
+    <string name="menu_changci">场次</string>
+    <string name="menu_user">会员</string>
 
     <string name="app_name">design</string>
 

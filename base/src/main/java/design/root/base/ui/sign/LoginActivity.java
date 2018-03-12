@@ -6,6 +6,7 @@ import com.blankj.utilcode.util.ToastUtils;
 import design.root.base.R;
 import design.root.base.base.BaseActivity;
 import design.root.base.databinding.ActivityLoginBinding;
+import design.root.base.util.Global;
 
 
 public class LoginActivity extends BaseActivity<LoginPresenter, LoginModel, ActivityLoginBinding>
@@ -62,7 +63,11 @@ public class LoginActivity extends BaseActivity<LoginPresenter, LoginModel, Acti
         closeLoading();
         Class startActivity = null;
         try {
-            startActivity = Class.forName("design.custom.ui.main.MainActivity");
+            if (Global.userEntity.getUsername().equals("admin")) {
+                startActivity = Class.forName("design.custom.ui.admin.AdminActivity");
+            } else {
+                startActivity = Class.forName("design.custom.ui.main.MainActivity");
+            }
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
