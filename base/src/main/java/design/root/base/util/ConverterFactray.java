@@ -11,7 +11,10 @@ import java.io.Writer;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Type;
 import java.nio.charset.Charset;
+import java.util.HashMap;
 
+import design.root.base.Constant;
+import design.root.base.api.ApiException;
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
@@ -78,10 +81,16 @@ public class ConverterFactray extends Converter.Factory {
 
         @Override
         public T convert(ResponseBody value) throws IOException {
-            //解密字符串
             String temp = new String(value.bytes(), "utf-8");
-//        String response = value.string();
-            return adapter.fromJson(temp);
+            HashMap<String, Object> map = gson.fromJson(temp, HashMap.class);
+
+            if (map.get("returnCode").toString().equals(Constant.RETURN_CODE.SERVER_OK)) {
+                //解密字符串
+                return adapter.fromJson(temp);
+            } else {
+                throw new ApiException.API(map.get("returnCode").toString(), map.get
+                        ("returnInfo").toString());
+            }
         }
     }
 }

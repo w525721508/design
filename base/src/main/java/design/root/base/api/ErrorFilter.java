@@ -19,6 +19,12 @@ class ErrorFilter<T> implements Function<Throwable, HttpMessage<T>> {
     public HttpMessage<T> apply(Throwable throwable) throws Exception {
         if (throwable != null) LogUtils.e(throwable.getMessage());
         //可根据Throwable具体区分,现在先统一变成服务器异常
-        return new HttpMessage<>(Constant.RETURN_CODE.SERVER_ERR, Constant.RETURN_INFO.SERVER_ERR);
+        if (throwable instanceof ApiException.API) {
+            return new HttpMessage<>(((ApiException.API) throwable).getReturnCode(), throwable
+                    .getMessage());
+        } else {
+            return new HttpMessage<>(Constant.RETURN_CODE.SERVER_ERR, throwable
+                    .getMessage());
+        }
     }
 }

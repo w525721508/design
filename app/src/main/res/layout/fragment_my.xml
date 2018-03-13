@@ -12,9 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white_caocao"
-        android:gravity="center"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical">
 
         <include
             android:id="@+id/ic"
@@ -22,12 +20,54 @@
             android:background="@drawable/up_down_line_gray"></include>
 
         <TextView
+            android:id="@+id/tx_username"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@drawable/up_down_line_white_bottom"
+            android:drawableRight="@mipmap/drop_down"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/all_padding"
+            android:paddingRight="@dimen/all_padding"
+            android:text="123456"
+            android:textSize="@dimen/text_three_title"/>
+
+        <TextView
+            android:id="@+id/tx_email"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@drawable/up_down_line_white_bottom"
+            android:drawableRight="@mipmap/drop_down"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/all_padding"
+            android:paddingRight="@dimen/all_padding"
+            android:text="52123456789@qq.com"
+            android:textSize="@dimen/text_three_title"/>
+
+        <TextView
+            android:id="@+id/tx_sex"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@drawable/up_down_line_white_bottom"
+            android:drawableRight="@mipmap/drop_down"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/all_padding"
+            android:paddingRight="@dimen/all_padding"
+            android:text="男"
+            android:textSize="@dimen/text_three_title"/>
+
+
+        <TextView
+            android:id="@+id/tx_out"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@drawable/up_down_line_white_bottom"
             android:gravity="center"
-            android:text="我的"/>
-
-
+            android:onClick="@{onClickListener}"
+            android:paddingLeft="@dimen/all_padding"
+            android:paddingRight="@dimen/all_padding"
+            android:text="退出登录"
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/text_three_title"/>
     </LinearLayout>
 
 

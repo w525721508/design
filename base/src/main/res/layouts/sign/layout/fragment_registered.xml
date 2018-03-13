@@ -135,7 +135,8 @@
                     android:drawablePadding="@dimen/all_padding"
                     android:hint="@string/login_et_address_hint"
                     android:maxLength="16"
-                    android:saveEnabled="true"/>
+                    android:saveEnabled="true"
+                    android:visibility="gone"/>
             </LinearLayout>
         </RelativeLayout>
 

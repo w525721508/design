@@ -7,11 +7,11 @@ import java.io.IOException;
  */
 
 public class ApiException {
-    static class API extends RuntimeException {
+    public static class API extends RuntimeException {
         private String returnCode;
         private String returnInfo;
 
-        API(String returnCode, String returnInfo) {
+        public API(String returnCode, String returnInfo) {
             //TODO 应该是returnCode, returnInfo 组成的Json
             super(getErrorDesc(returnCode, returnInfo));
             this.returnInfo = returnInfo;
